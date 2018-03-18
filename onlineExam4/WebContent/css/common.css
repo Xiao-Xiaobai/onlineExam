@@ -1,0 +1,372 @@
+@charset "UTF-8";
+/*公共样式*/
+.inner_center{
+    width: 950px;
+    margin: 0 auto;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+
+/*header设置开始*/
+.header{
+    background: url("../images/top_bg.jpg") no-repeat top;
+    height: 160px;
+}
+.header .exit{
+	display: none;
+	margin-left: 20px;
+}
+.header .time{
+    line-height: 40px;
+}
+/*header设置结束*/
+
+/*footer设置开始*/
+.footer .inner_center {
+    background: url("../images/bottom_bg.jpg") no-repeat;
+    height: 125px;
+    text-align: center;
+}
+.footer .inner_center p{
+    padding-top:60px;
+}
+/*footer设置结束*/
+
+/*登录表单设置开始*/
+.content .inner_center{
+    height: 500px;
+    background: url("../images/login_background.png") no-repeat center;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.content .login{
+    position: absolute;
+    top: 100px;
+    right: 50px;
+}
+.content .login p.title{
+    font: bold 28px/40px 'simsun' ;
+    text-align: center;
+}
+.content .login input{
+    border: 1px solid #d8d8d8;
+    padding: 4px;
+}
+.content .login input.txt{
+    width: 190px;
+}
+.content .login span{
+    display: inline-block;
+    width: 60px;
+    text-align: right;
+}
+.content .login p.mess{
+    text-align: center;
+    color: #ff4730;
+    font-weight: bold;
+}
+.content .login .btn{
+    width: 60px;
+    height: 30px;
+    background-color: #7884c8;
+    border-radius: 7px;
+    border-color: #8894c8;
+    font-size: 16px;
+    margin-left: 110px;
+}
+.content .login .btn:hover{
+    background-color: #5c61c8;
+}
+/*登录区域设置结束*/
+
+/*公共main区域nav设置开始*/
+nav{
+    line-height: 40px;
+    padding-left: 20px;
+    background-color: #dddddd;
+}
+
+/*a_index样式设置开始*/
+.a_content{
+    height: 700px;
+}
+/*a_index左侧区域  */
+.a_content .left_side{
+    width: 150px;
+    height: 700px;
+    background-color: #d8d8d8;
+    margin-right: 10px;
+    padding-top: 10px;
+}
+.a_content .left_side ul{
+    margin-top: 10px;
+}
+.a_content .left_side ul li:first-child a{
+    padding-left: 30px;
+    font: 800 16px/30px 'SimSun';
+}
+.a_content .left_side ul li:nth-child(n+1) a{
+    padding-left: 30px;
+}
+.a_content .left_side li a.stu{
+    background: url("../images/menu_users.png") no-repeat 8px;
+}
+.a_content .left_side li a.tea{
+    background: url("../images/menu_users.png") no-repeat 8px;
+}
+.a_content .left_side li a.paper{
+    background: url("../images/menu_paper.png") no-repeat 8px;
+}
+.a_content .left_side li a.analy{
+    background: url("../images/menu_analysis.png") no-repeat 8px;
+}
+.a_content .left_side li.active{
+    background-color: #cccccc;
+}
+/*a_index右侧内容区域 */
+.a_content .main {
+    width: 790px;
+    height: 700px;
+    background-color: #eeeeee;
+}
+
+/*index_default设置开始*/
+.main_title{
+    font: 900 28px/350% 'SimSun';
+    text-align: center;
+}
+.main_help{
+    padding-left: 20px;
+}
+.main_help .help_title{
+    font: 500 20px/200% 'SimSun';
+    background-color: #e8e8e8;
+}
+.main_help .teacher_help{
+    height: 158px;
+}
+.main_help .teacher_help li{
+    width: 150px;
+    float: left;
+}
+.main_help .teacher_help li div{
+    width: 60px;
+    height: 60px;
+    margin-left: 25px;
+}
+.main_help .teacher_help li div.img1{
+     background: url("../images/add_student.jpg") no-repeat center;
+}
+.main_help .teacher_help li div.img2{
+    background: url("../images/add_paper.jpg") no-repeat -6px -16px;
+}
+.main_help .teacher_help li div.img3{
+    background: url("../images/check_grade.jpg") no-repeat -12px -38px;
+}
+.main_help .teacher_help li div.img4{
+    background: url("../images/check_analysis.jpg") no-repeat center;
+}
+.main_help .teacher_help li p{
+    /*text-align: center;*/
+    margin-left: 25px;
+}
+
+.main_help .student_help{
+    height: 158px;
+    margin-top: 20px;
+}
+.main_help .student_help li{
+    width: 150px;
+    float: left;
+}
+.main_help .student_help li div{
+    width: 60px;
+    height: 60px;
+    margin-left: 25px;
+}
+.main_help .student_help li div.img5{
+    background: url("../images/wait_test.jpg") no-repeat top;
+}
+.main_help .student_help li div.img6{
+    background: url("../images/start_test.jpg") no-repeat right bottom;
+}
+.main_help .student_help li div.img7{
+    background: url("../images/selfgrade.jpg") no-repeat center;
+}
+.main_help .student_help li div.img8{
+    background: url("../images/selfinfo.jpg") no-repeat center;
+}
+.main_help .student_help li p{
+    /*text-align: center;*/
+    margin-left: 25px;
+}
+/*index_default页面样式设置结束*/
+
+/*a_sMess页面样式设置开始*/
+.stuMess div.find{
+    margin: 20px 0;
+}
+.stuMess div.find input{
+    width: 130px;
+    height: 24px;
+    padding-left: 8px;
+    margin-left: 100px;
+}
+.stuMess div.find button{
+    width: 100px;
+    height: 24px;
+    background-color: #e0e0e0;
+}
+.stuMess div.find button:hover{
+    background-color: #c3c3c3;
+}
+.stuMess ul:nth-child(even){
+    background-color: #e0e0e0;
+}
+.stuMess ul:hover{
+    background-color: #c3c3c3;
+}
+.stuMess ul.title{
+    font-weight: bold;
+    background-color: #e0e0e0;
+}
+.stuMess ul li{
+    display: inline-block;
+    width: 70px;
+    text-align: center;
+}
+.stuMess ul li:first-child{
+    width: 130px;
+}
+.stuMess ul li:nth-child(6){
+    width: 130px;
+}
+.stuMess ul li:nth-child(7){
+    width: 50px;
+}
+.stuMess ul li:nth-child(8){
+    width: 50px;
+}
+.stuMess ul li:nth-child(9){
+    width: 50px;
+}
+.stuMess ul li:nth-child(10){
+    width: 80px;
+}
+/*a_sMess样式设置结束  */
+
+/*hisTest查看历史考试信息 页面样式设置开始 */
+.hisTest ul:first-child{
+    font-weight: bold;
+}
+.hisTest ul li{
+    display: inline-block;
+    width: 120px;
+    text-align: center;
+}
+/*hisTest样式设置结束  */
+
+/*hisTest查看待考试信息 页面样式设置开始 */
+.waitTest ul:first-child{
+    font-weight: bold;
+}
+.waitTest ul li{
+    display: inline-block;
+    width: 150px;
+    text-align: center;
+}
+/*waitTest样式设置结束  */
+
+/*addStu 新增学生页面样式设置开始  */
+.addStu{
+    margin-top: 30px;
+    margin-left: 50px;
+}
+.addStu li{
+    height: 50px;
+}
+.addStu input.txt{
+    width: 200px;
+    height: 26px;
+    padding-left: 8px;
+    font-size: 14px;
+}
+.addStu input.subTxt{
+    width: 140px;
+    height: 26px;
+    padding-left: 4px;
+}
+.addStu button.plusBtn{
+    width: 20px;
+    height: 20px;
+    background: url("../images/plus.jpg") no-repeat;
+}
+.addStu p.mess{
+    color: #ff4730;
+    font-weight: bold;
+    padding-left: 100px;
+}
+.addStu .btn{
+    width: 60px;
+    height: 30px;
+    background-color: #acacac;
+    border-radius: 7px;
+    /*border-color: #8894c8;*/
+    font-size: 16px;
+    margin-left: 200px;
+}
+.addStu .btn:hover{
+    background-color: #8e8e8e;
+}
+/*addStu页面样式设置结束  */
+
+/*updateStu 修改学生页面样式设置开始  */
+.updateStu{
+    margin-top: 30px;
+    margin-left: 50px;
+}
+.updateStu li{
+    height: 50px;
+}
+.updateStu input.txt{
+    width: 200px;
+    height: 26px;
+    padding-left: 8px;
+    font-size: 14px;
+}
+.updateStu p.mess{
+    color: #ff4730;
+    font-weight: bold;
+    padding-left: 100px;
+}
+.updateStu .btn{
+    width: 60px;
+    height: 30px;
+    background-color: #acacac;
+    border-radius: 7px;
+    /*border-color: #8894c8;*/
+    font-size: 16px;
+    margin-left: 200px;
+}
+.updateStu .btn:hover{
+    background-color: #8e8e8e;
+}
+/*updateStu页面样式设置结束  */
+
+/*stuSub学生的课程信息页面样式设置开始  */
+.stuSub ul:first-child{
+    font-weight: bold;
+}
+.stuSub ul li{
+    display: inline-block;
+    width: 120px;
+    text-align: center;
+}
+.stuSub p.mess{
+	text-align: center;
+}

@@ -1,0 +1,17 @@
+﻿<nav>
+    <a href="#/">首页</a>
+    <span> > </span>
+    <a href="#/a_sMess">学生信息</a>
+    <span> > </span>
+    <span>待参加的考试</span>
+</nav>
+<div class="waitTest">
+    <ul>
+        <li>学号</li><li>姓名</li><li>考试名称</li><li>科目</li><li>操作</li>
+    </ul>
+
+    <ul ng-repeat="waitTest in waitTests track by $index">
+        <li>{{sNo}}</li><li>{{sName}}</li><li>{{waitTest.name}}</li><li>{{waitTest.subject}}</li>
+        <li><a href="#">查看</a> <a href="#">删除</a></li>
+    </ul>
+</div>

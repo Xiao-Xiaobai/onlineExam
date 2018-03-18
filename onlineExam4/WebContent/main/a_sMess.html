@@ -1,0 +1,22 @@
+﻿<nav>
+    <a href="#/">首页</a>
+    <span> > </span>
+    <span>学生信息</span>
+</nav>
+<div class="stuMess">
+	<div class="find">
+        <input type="text" placeholder="请输入学号" ng-model="bySno"><button ng-click="findBySno()">按学号查找</button>
+        <input type="text" placeholder="请输入姓名" ng-model="byName"><button ng-click="findByName()">按姓名查找</button>
+    </div>
+    <ul class="title">
+        <li>学号</li><li>姓名</li><li>性别</li><li>年级</li><li>班级</li>
+        <li>专业</li><li>课程</li><li>已考</li><li>待考</li><li>操作</li>
+    </ul>
+    
+    <ul ng-repeat="stu in students">
+        <li>{{stu.sno}}</li><li>{{stu.name}}</li><li>{{stu.sex}}</li><li>{{stu.year}}</li><li>{{stu.clas}}</li>
+        <li>{{stu.major}}</li><li><a href="#/a_sMess/stuSub/{{stu.sno}}">查看</a></li>
+        <li><a href="#/a_sMess/hisTest/{{stu.sno}}">查看</a></li><li><a href="#/a_sMess/waitTest/{{stu.sno}}">查看</a></li>
+        <li><a href="#/updateStu/{{stu.sno}}">修改</a> <a href="javascript:;" ng-click="delStu(stu.sno)">删除</a></li>
+    </ul>
+</div>

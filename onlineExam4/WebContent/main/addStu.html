@@ -1,0 +1,56 @@
+﻿<nav>
+    <a href="#/">首页</a>
+    <span> > </span>
+    <span>新增学生</span>
+</nav>
+<div class="addStu">
+    <ul>
+        <li><span>学号：</span><input type="text" class="txt" ng-model="sno"></li>
+        <li><span>密码：</span><input type="text" class="txt" ng-model="pwd"></li>
+        <li><span>姓名：</span><input type="text" class="txt" ng-model="name"></li>
+        <li><span>性别：</span>
+            <input type="radio" value="男" ng-model="sex">男&nbsp;&nbsp;
+            <input type="radio" value="女" ng-model="sex">女
+        </li>
+        <li>
+            <span>专业：</span>
+            <select ng-model="major" ng-init="major='000'">
+                <option value="000" ng-show="false">请选择专业</option>
+                <option value="计算机科学与技术">计算机科学与技术</option>
+                <option value="医学信息工程">医学信息工程</option>
+                <option value="卫生检验与检疫">卫生检验与检疫</option>
+                <option value="医学检验技术">医学检验技术</option>
+                <option value="听力与言语康复">听力与言语康复</option>
+            </select>
+            &nbsp;&nbsp;
+            <span>年级：</span>
+            <select ng-model="year" ng-init="year='0000'">
+                <option value="0000" ng-show="false">请选择年级</option>
+                <option value="2014级">2014级</option>
+                <option value="2015级">2015级</option>
+                <option value="2016级">2016级</option>
+                <option value="2017级">2017级</option>
+                <option value="2018级">2018级</option>
+            </select>
+            &nbsp;&nbsp;
+            <span>班级：</span>
+            <select ng-model="clas" ng-init="clas='0'">
+                <option value="0" ng-show="false">请选择班级</option>
+                <option value="1班">1班</option>
+                <option value="2班">2班</option>
+                <option value="3班">3班</option>
+                <option value="4班">4班</option>
+                <option value="5班">5班</option>
+            </select>
+        </li>
+        <li><span>课程：</span>
+            <input type="text" placeholder="点击加号可继续添加" class="subTxt" ng-model="sub1">
+            <input type="text" placeholder="点击加号可继续添加" class="subTxt" ng-show="show2" ng-model="sub2">
+            <input type="text" class="subTxt" ng-show="show3" ng-model="sub3">
+            <button class="plusBtn" ng-click="newSub()" ng-hide="show3"></button>
+        </li>
+        <li><p class="mess" ng-show="showMess" ng-bind="mess"></p></li>
+        <li><input type="submit" value="确认" class="btn" ng-click="add()"></li>
+    </ul>
+
+</div>

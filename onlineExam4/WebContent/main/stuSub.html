@@ -1,0 +1,18 @@
+﻿<nav>
+    <a href="#/">首页</a>
+    <span> > </span>
+    <a href="#/a_sMess">学生信息</a>
+    <span> > </span>
+    <span>已加入的课程</span>
+</nav>
+<div class="stuSub">
+    <ul>
+        <li>学号</li><li>姓名</li><li>课程名</li><li>考试状态</li><li>成绩</li><li>操作</li>
+    </ul>
+
+    <ul ng-repeat="stuSub in stuSubs track by $index">
+        <li>{{stuSub.sno}}</li><li>{{stuSub.sName}}</li><li>{{stuSub.subName}}</li><li>{{stuSub.status}}</li>
+        <li>{{stuSub.grade}}</li><li><a href="#">修改</a> <a href="#">删除</a></li>
+    </ul>
+    <p ng-bind="mess" class="mess"></p>
+</div>

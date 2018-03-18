@@ -1,0 +1,21 @@
+﻿<nav>
+    <a href="#/">首页</a>
+    <span> > </span>
+    <a href="#/a_sMess">学生信息</a>
+    <span> > </span>
+    <span>已参加的考试</span>
+</nav>
+<div class="hisTest">
+    <ul>
+        <li>学号</li><li>姓名</li><li>考试名称</li><li>科目</li><li>成绩</li><li>操作</li>
+    </ul>
+    <!--<ul>-->
+        <!--<li>201412201401041</li><li>白菊</li><li>女</li><li>2014级</li><li>1班</li>-->
+        <!--<li>计算机科学与技术</li><li><a href="#">查看</a></li><li><a href="#">查看</a></li>-->
+        <!--<li><a href="#">修改</a> <a href="#">删除</a></li>-->
+    <!--</ul>-->
+    <ul ng-repeat="hisTest in hisTests track by $index">
+        <li>{{sNo}}</li><li>{{sName}}</li><li>{{hisTest.name}}</li><li>{{hisTest.subject}}</li>
+        <li>{{hisTest.grade}}</li><li><a href="#">修改</a> <a href="#">删除</a></li>
+    </ul>
+</div>
