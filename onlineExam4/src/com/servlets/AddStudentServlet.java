@@ -49,36 +49,82 @@ public class AddStudentServlet extends HttpServlet {
 		String year = request.getParameter("year");
 		String clas = request.getParameter("clas");
 		String subjects[] = request.getParameterValues("subjects");
+		String flag = request.getParameter("flag");
 		
-		String mess; //要发送的信息
+		String mess = null; //要发送的信息
+		String sql;
+		DataProcess dataProcess = new DataProcess();
 		
-		if(sNo == null || sNo.equals("")){
-			mess = "请输入学号";
-		}else if(sPwd == null || sPwd.equals("")){
-			mess = "请输入密码";
-		}else if(sName == null || sName.equals("")){
-			mess = "请输入姓名";
-		}else if(sSex == null || sSex.equals("")){
-			mess = "请选择性别";
-		}else {
-			String sql;
-			DataProcess dataProcess = new DataProcess();
-			sql = "select * from Student where sNo = '" + sNo + "'";
-			Vector<Vector<String>>rows = dataProcess.getData(sql);
-			if(rows.size() > 0){
-				mess = "该学生已存在";
-			}else{
-				sql = "insert into Student values('"+ sNo +"', '"+ sPwd + "', '"+ sName + "', '"+ sSex + "', '"
-						+ major + "', '"+ year + "', '"+ clas + "')";
-				dataProcess.update(sql);
-				if(subjects != null){
-					for(int i = 0; i < subjects.length; i++){
-						sql = "insert into Stu_Sub(sNo, subName, examStatus) values('" + sNo + "', '" + subjects[i] + "', '0')";
-						dataProcess.update(sql);
+		if(flag == null){
+			if(sNo == null || sNo.equals("")){
+				mess = "请输入学号";
+			}else if(sPwd == null || sPwd.equals("")){
+				mess = "请输入密码";
+			}else if(sName == null || sName.equals("")){
+				mess = "请输入姓名";
+			}else if(sSex == null || sSex.equals("")){
+				mess = "请选择性别";
+			}else {
+				
+				sql = "select * from Student where sNo = '" + sNo + "'";
+				Vector<Vector<String>>rows = dataProcess.getData(sql);
+				if(rows.size() > 0){
+					mess = "该学生已存在";
+				}else{
+					sql = "insert into Student values('"+ sNo +"', '"+ sPwd + "', '"+ sName + "', '"+ sSex + "', '"
+							+ major + "', '"+ year + "', '"+ clas + "')";
+					if(dataProcess.update(sql)){
+						mess = "success";
 					}
-				}				
-				mess = "success";
+					if(subjects != null){
+						for(int i = 0; i < subjects.length; i++){
+							String sql2 = "select subName from Subject where subName = '" + subjects[i] + "'";
+							if(dataProcess.getData(sql2).size() > 0){
+								sql = "select subName from Stu_Sub where sNo = '"+ sNo +"' and subName = '"+ subjects[i] +"'";
+								if(dataProcess.getData(sql).size() == 0){
+									sql = "insert into Stu_Sub(sNo, subName) values('" + sNo + "', '" + subjects[i] + "')";
+									if(dataProcess.update(sql)){
+										mess = "success";
+									}else{
+										mess = "error";
+										break;
+									}
+								}
+							}else{
+								mess = "对不起，不存在《" + subjects[i] + "》这门课程！";
+								break;
+							}
+						}
+					}				
+				}
 			}
+		} else if(flag.equals("addStuSub")){
+			if(subjects != null){
+				for(int i = 0; i < subjects.length; i++){
+					String sql2 = "select subName from Subject where subName = '" + subjects[i] + "'";
+					if(dataProcess.getData(sql2).size() > 0){
+						sql = "select subName from Stu_Sub where sNo = '"+ sNo + "' and subName = '"+ subjects[i] + "'";
+						if(dataProcess.getData(sql).size() == 0){
+							sql = "insert into Stu_Sub(sNo, subName) values('" + sNo + "', '" + subjects[i] + "')";
+							if(dataProcess.update(sql)){
+								mess = "success";
+							}else{
+								mess = "error";
+								break;
+							}
+						}else{
+							mess = "对不起，你已经有《" + subjects[i] + "》这门课程";
+							break;
+						}
+					}else{
+						mess = "对不起，不存在《" + subjects[i] + "》这门课程！";
+						break;
+					}
+				}
+			}else{
+				mess = "请输入课程名";
+			}
+			
 		}
 		//发送数据
 		String jsonStr = "{ \"mess\" : \"" + mess + "\"}";

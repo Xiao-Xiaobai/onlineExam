@@ -1,0 +1,63 @@
+<nav>
+    <a href="#/teacher">首页</a>
+    <span> > </span>
+    <span>学生试卷</span>
+</nav>
+<div class="stuScore">	
+	<div class="selectItem">
+		<select ng-model="eName" ng-init="eName=''">
+			<option value="" ng-show="false">请选择考试</option>
+			<option ng-repeat="eName in eMess track by $index" value="{{eName.eName}}">{{eName.eName}}</option>
+		</select>
+		<select ng-model="major" ng-init="major='暂无'">
+            <option value="暂无" ng-show="false">请选择专业</option>
+            <option value="计算机科学与技术">计算机科学与技术</option>
+            <option value="医学信息工程">医学信息工程</option>
+            <option value="卫生检验与检疫">卫生检验与检疫</option>
+            <option value="医学检验技术">医学检验技术</option>
+            <option value="听力与言语康复">听力与言语康复</option>
+        </select>
+        <select ng-model="year" ng-init="year='暂无'">
+            <option value="暂无" ng-show="false">请选择年级</option>
+            <option value="2014级">2014级</option>
+            <option value="2015级">2015级</option>
+            <option value="2016级">2016级</option>
+            <option value="2017级">2017级</option>
+            <option value="2018级">2018级</option>
+        </select>
+        <select ng-model="clas" ng-init="clas='暂无'">
+            <option value="暂无" ng-show="false">请选择班级</option>
+            <option value="1班">1班</option>
+            <option value="2班">2班</option>
+            <option value="3班">3班</option>
+            <option value="4班">4班</option>
+            <option value="5班">5班</option>
+        </select>
+        <button ng-click="findScore()">查看</button>
+	</div>
+
+        	
+    <div class="stuScoreList" ng-show="selected">    
+	    <ul class="title">
+	        <li>序号</li><li>学号</li><li>姓名</li><li>性别</li><li>专业</li><li>年级</li><li>班级</li><li>成绩</li><li>考试状态</li><li>试卷</li><li>操作</li>
+	    </ul>
+	    
+	    <ul ng-repeat="stu in stuMess">
+	        <li>{{$index+1}}</li><li>{{stu.sno}}</li><li>{{stu.name}}</li><li>{{stu.sex}}</li><li>{{stu.major}}</li><li>{{stu.year}}</li><li>{{stu.clas}}</li>
+	        <li>{{stu.grade}}</li><li>{{stu.eStatus}}</li><li><a href="stuPaper.jsp?tNo={{tno}}&eId={{stu.stuEid}}&sNo={{stu.sno}}">查看</a></li><li><a href="javascript:;" ng-click="updateClick(stu.stuEid, stu.sno, stu.name, stu.grade, stu.eStatus)">修改</a></li>
+	    </ul>
+    </div>
+    <div class="mask" ng-show="updating"></div>
+	<div class="updateBox" ng-show="updating">
+		<div class="closeUpBox" ng-click="updating=false">×</div>
+		<ul>			
+			<li><input type="hidden" ng-model="upId">
+				<span>学号：</span><input type="text" class="txt" ng-model="upSno" disabled="disabled"></li>
+			<li><span>姓名：</span><input type="text" class="txt" ng-model="upSname" disabled="disabled"></li>
+			<li><span>考试名：</span><input type="text" class="txt" ng-model="upEname"  disabled="disabled"></li>
+			<li><span>考试状态：</span><input type="text" class="txt" ng-model="upStatus"></li>
+			<li><span>成绩：</span><input type="text" class="txt" ng-model="upGrade"></li>
+			<li><input type="submit" value="确认" class="btn" ng-click="updateStuSub()"></li>
+		</ul>
+	</div>
+</div>

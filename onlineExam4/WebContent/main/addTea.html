@@ -1,0 +1,65 @@
+<nav>
+    <a href="#/">首页</a>
+    <span> > </span>
+    <span>新增教师</span>
+</nav>
+<div class="addTea">
+    <ul>
+        <li><span>工号：</span><input type="text" placeholder="必填" class="txt" ng-model="tno"></li>
+        <li><span>密码：</span><input type="text" placeholder="必填" class="txt" ng-model="pwd"></li>
+        <li><span>姓名：</span><input type="text" placeholder="必填" class="txt" ng-model="name"></li>
+        <li><span>性别：</span>
+            <input type="radio" value="男" ng-model="sex">男&nbsp;&nbsp;
+            <input type="radio" value="女" ng-model="sex">女
+        </li>
+        <li class="classinfo">
+        	<span>授课对象：</span>
+        	<button class="plusBtn" ng-click="newCls()">继续添加</button>
+        	<div  ng-repeat="select in selects track by $index">
+        		<span>专业：</span>
+	            <select ng-model="$parent.major[$index]" ng-init="$parent.major[$index]='暂无'">
+	                <option value="暂无" ng-show="false">请选择专业</option>
+	                <option value="计算机科学与技术">计算机科学与技术</option>
+	                <option value="医学信息工程">医学信息工程</option>
+	                <option value="卫生检验与检疫">卫生检验与检疫</option>
+	                <option value="医学检验技术">医学检验技术</option>
+	                <option value="听力与言语康复">听力与言语康复</option>
+	            </select>
+	            &nbsp;&nbsp;
+	            <span>年级：</span>
+	            <select ng-model="$parent.year[$index]" ng-init="$parent.year[$index]='暂无'">
+	                <option value="暂无" ng-show="false">请选择年级</option>
+	                <option value="2014级">2014级</option>
+	                <option value="2015级">2015级</option>
+	                <option value="2016级">2016级</option>
+	                <option value="2017级">2017级</option>
+	                <option value="2018级">2018级</option>
+	            </select>
+	            &nbsp;&nbsp;
+	            <span>班级：</span>
+	            <select ng-model="$parent.clas[$index]" ng-init="$parent.clas[$index]='暂无'">
+	                <option value="暂无" ng-show="false">请选择班级</option>
+	                <option value="1班">1班</option>
+	                <option value="2班">2班</option>
+	                <option value="3班">3班</option>
+	                <option value="4班">4班</option>
+	                <option value="5班">5班</option>
+	            </select>
+        	</div>
+                        
+        </li>
+        
+        <li class="subinfo"><span>所带课程：</span><button class="plusBtn" ng-click="newSub()">继续添加</button>
+            <div ng-repeat="inpt in inpts track by $index">
+                <input list="sublist" type="text" placeholder="请输入完整的科目名 可不填" class="subTxt" ng-model="$parent.sub[$index]">
+        			<datalist id="sublist">
+        			<option ng-repeat="sub in subjects track by $index">{{sub.subName}}</option>      		
+        			</datalist>
+                <button class="delBtn" ng-click="delSub($index)" ng-show="$index!=0">&nbsp;</button>
+            </div>
+        </li>
+        <li><p class="mess" ng-show="showMess" ng-bind="mess"></p></li>
+        <li><input type="submit" value="确认" class="btn" ng-click="add()"></li>
+    </ul>
+
+</div>

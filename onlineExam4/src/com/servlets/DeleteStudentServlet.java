@@ -40,19 +40,40 @@ public class DeleteStudentServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
+		String sNo = request.getParameter("sno");
+		String sub = request.getParameter("subName");
+		String eId = request.getParameter("eId");
+		String flag = request.getParameter("flag");
 		
-		//接收参数，并去掉空格，以便在数据库中找到并删除
-		String sNo = request.getParameter("sNo").replaceAll(" ", "");
-		String mess;
+		String mess = null;
 		String sql;
 		DataProcess data = new DataProcess();
-		sql = "delete from Student where sNo = '"+ sNo +"'";
-		if(data.update(sql)){
-			mess = "success";				
+		if(flag.equals("deleteAll")){
+			String sql1 = "delete from Student where sNo = '"+ sNo +"'";
+			String sql2 = "delete from Stu_Sub where sNo = '"+ sNo +"'";
+			String sql3 = "delete from Stu_Exam where sNo = '"+ sNo +"'";
+			if(data.update(sql1) && data.update(sql2) && data.update(sql3)){
+				mess = "success";				
+			} else{
+				mess = "error";
+			}	
+		} else if(flag.equals("deleteStuSub")){
+			sql = "delete from Stu_Sub where sNo = '" + sNo + "' and subName = '" + sub + "'";
+			String sql2 = "delete from Stu_Exam where sNo = '" + sNo + "' and eSub = '" + sub + "'";
+			if(data.update(sql) && data.update(sql2)){
+				mess = "success";
+			} else{
+				mess = "error";
+			}
+		} else if(flag.equals("deleteStuExam")){
+			sql = "delete from Stu_Exam where id = '"+ eId +"'";
+			if(data.update(sql)){
+				mess = "success";
+			} else{
+				mess = "error";
+			}
 		}
-		else{
-			mess = "error";
-		}		
+			
 		//发送数据
 		String jsonStr = "{ \"mess\" : \"" + mess + "\"}";
 		response.getWriter().print(jsonStr);

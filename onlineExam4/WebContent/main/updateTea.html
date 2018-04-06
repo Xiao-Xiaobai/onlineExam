@@ -1,0 +1,21 @@
+<nav>
+    <a href="#/">首页</a>
+    <span> > </span>
+    <a href="#/a_tMess">教师信息</a>
+    <span> > </span>
+    <span>修改教师信息</span>
+</nav>
+<div class="updateTea">
+    <ul>
+        <li><span>工号：</span><input type="text" class="txt" ng-model="tno" disabled="disabled"></li>
+        <li><span>密码：</span><input type="text" class="txt" ng-model="pwd"></li>
+        <li><span>姓名：</span><input type="text" class="txt" ng-model="name"></li>
+        <li><span>性别：</span>
+            <input type="radio" value="男" ng-model="sex">男&nbsp;&nbsp;
+            <input type="radio" value="女" ng-model="sex">女
+        </li>       
+        <li><p class="mess" ng-show="showMess" ng-bind="mess"></p></li>
+        <li><input type="submit" value="确认" class="btn" ng-click="update()"></li>
+    </ul>
+
+</div>

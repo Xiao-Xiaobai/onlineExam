@@ -1,4 +1,22 @@
-﻿
-<div>
-    这里是教师管理页面
+<nav>
+    <a href="#/">首页</a>
+    <span> > </span>
+    <span>教师信息</span>
+</nav>
+<div class="teaMess">
+	<div class="find">
+        <input type="text" placeholder="请输入工号" ng-model="byTno"><button ng-click="findByTno()">按工号查找</button>
+        <input type="text" placeholder="请输入姓名" ng-model="byName"><button ng-click="findByName()">按姓名查找</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button ng-show="byTno!=''||byName!=''" ng-click="reload()">全部教师</button>
+    </div>
+    <ul class="title">
+        <li>工号</li><li>姓名</li><li>性别</li><li>授课对象</li>
+        <li>所带课程</li><li>操作</li>
+    </ul>
+    
+    <ul ng-repeat="tea in teachers track by $index">
+        <li>{{tea.tno}}</li><li>{{tea.name}}</li><li>{{tea.sex}}</li><li><a href="#/a_tMess/teaClass/{{tea.tno}}">查看</a></li>
+        <li><a href="#/a_tMess/teaSub/{{tea.tno}}">查看</a></li>
+        <li><a href="#/updateTea/{{tea.tno}}">修改</a> <a href="javascript:;" ng-click="delTea(tea.tno)">删除</a></li>
+    </ul>
 </div>

@@ -1,30 +1,27 @@
-﻿/**
- * Created by lenovo on 2018/3/8.
- */
+﻿
 var updateModule = angular.module("app.updateStu", []);
 updateModule.controller('updateStuController',['$scope', '$http', '$location', '$routeParams',
 		function($scope, $http, $location, $routeParams) {
-			var user = {sNo: $routeParams.sno};
-		    var transFn = function(user) {  
-		        return $.param(user);  
+			var info = {findSno: $routeParams.sno, flag: "findBySno"};
+		    var transFn = function(info) {  
+		        return $.param(info);  
 		    };  
 		   
 			$http({
 				method: "POST",
 				url: "FindStudentServlet",
-				data: user,
+				data: info,
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},  
 		        transformRequest: transFn 
 			}).then(function successCallBack(response){
 				var mess = response.data[0];
-				//trim()去掉多余的空格
-				$scope.sno = mess.sno.trim();
-				$scope.pwd = mess.password.trim();
-				$scope.name = mess.name.trim();
-				$scope.sex = mess.sex.trim();
-				$scope.major = mess.major.trim();
-				$scope.year = mess.year.trim();
-				$scope.clas = mess.clas.trim();
+				$scope.sno = mess.sno;
+				$scope.pwd = mess.password;
+				$scope.name = mess.name;
+				$scope.sex = mess.sex;
+				$scope.major = mess.major;
+				$scope.year = mess.year;
+				$scope.clas = mess.clas;
 			}, function errorCallBack(){
 				console.log("失败");
 			});
@@ -39,6 +36,7 @@ updateModule.controller('updateStuController',['$scope', '$http', '$location', '
 						major: $scope.major,
 						year: $scope.year,
 						clas: $scope.clas,
+						flag: "updateBase"
 				};
 
 				var transFn = function(user) {  

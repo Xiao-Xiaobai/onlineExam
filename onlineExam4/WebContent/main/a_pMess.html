@@ -1,0 +1,69 @@
+<nav>
+    <a href="#/">首页</a>
+    <span> > </span>
+    <a href="#/a_eMess" ng-show="!isTeacher">考试信息</a>
+    <a href="#/t_exam/{{tno}}" ng-show="isTeacher">考试信息</a>
+    <span> > </span>
+    <span>查看试卷</span>
+</nav>
+<div class="paperMess">
+	<div class="paper">
+		<div class="paperTitle">{{eName}}</div>
+		<div class="paperMes"><div>科目：{{eSub}}</div> <span>考试时间：{{totalTime}}分钟</span> <span>总分：{{totalScore}}分</span></div>
+		<div ng-show="mess" class="message">{{mess}} &nbsp;&nbsp;<a href="#/addPaper/{{eName}}" ng-show="!isTeacher">点击添加试题</a><a href="#/addPaper/{{tno}}/{{eName}}" ng-show="isTeacher">点击添加试题</a></div>
+		<div class="question" ng-repeat="question in questions track by $index">			
+			<div class="quesTitle"><span>{{question.qNo}}</span><span>{{question.qType}}</span> <span>{{question.qTitle}}</span> <span>({{question.qScore}}分)</span></div>
+			<div class="queSelection" ng-show="question.qType=='单选题'">
+				<div ng-repeat="select in question.qSelection track by $index">
+					<input type="radio" name="preRadio"> <span>{{select.selectNo}}.</span> <span>{{select.selection}}</span>
+				</div>
+				<div class="quesAnswer">答案：{{question.qAnswer}}</div>
+			</div>
+			<div class="queSelection" ng-show="question.qType=='多选题'">
+				<div ng-repeat="select in question.qSelection track by $index">
+					<input type="checkbox" name="preMulti"> <span>{{select.selectNo}}.</span> <span>{{select.selection}}</span>
+				</div>
+				<div class="quesAnswer">答案：{{question.qAnswer}}</div>
+			</div>
+			<div class="queJudge" ng-show="question.qType=='判断题'">
+				<div>正确 <input type="radio" value="T" name="judgeSelect"></div>
+				<div>错误 <input type="radio" value="F" name="judgeSelect"></div>
+				<div class="quesAnswer">答案：{{question.qAnswer}}</div>
+			</div>
+			<div class="editAndDel">				
+				<button class="editBtn" ng-click="updateClick(question.id, question.qNo, question.qType, question.qScore, question.qTitle, question.qSelection, question.qAnswer)"></button>
+				<button class="delBtn" ng-click="delQuestion(question.id)"></button>				
+			</div>
+			<div ng-show="$index==questions.length-1"><a href="#/addPaper/{{eName}}/{{question.qNo}}" class="continueAdd" ng-show="!isTeacher">继续添加题目</a><a href="#/addPaper/{{tno}}/{{eName}}/{{question.qNo}}" class="continueAdd" ng-show="isTeacher">继续添加题目</a></div>
+		</div>
+		
+		<div class="mask" ng-show="updating"></div>
+		<div class="updateBox" ng-show="updating">
+			<div class="updateTop"><span class="title">修改</span><span class="closeUpBox" ng-click="updating=false">×</span></div>
+			<ul>
+				<li><input type="hidden" ng-model="upId">
+					<span class="describe">题号：</span><input type="number" class="upQno" ng-model="upQno" placeholder="请输入数字"></li>
+				<li><span class="describe">题目类型：</span>
+					<select class="upQtype" ng-model="upQtype">	
+						<option value="单选题">单选题</option>
+						<option value="多选题">多选题</option>
+						<option value="判断题">判断题</option>
+					</select>
+				</li>
+				<li><span class="describe">题目分值：</span><input type="number" class="upQscore" ng-model="upQscore" placeholder="请输入数字">分</li>	
+				<li><span class="describe">题干：</span><textarea ng-model="upQtitle"></textarea></li>
+				<li ng-hide="upQtype=='判断题'">
+					<span>选项设置：</span><button class="addBtn" ng-click="addSelect()">增加选项</button>
+					<div ng-repeat="upSelect in upSelects track by $index">
+						选项{{upSelect.selectNo}} <textarea ng-model="upSelect.selection"></textarea>
+						<button class="delBtn" ng-click="delSelect($index)" ng-show="$index==upSelects.length-1 && $index!=0">×</button>
+					</div>			
+				</li>
+				<li><span class="describe">答案：</span><input type="text" class="upQanswer" ng-model="upQanswer" placeholder="请输入字母A/BC/T/F"></li>
+				<li><span class="upMess">{{upMess}}</span><button class="upBtn" ng-click="update()">确认修改</button></li>	
+			</ul>
+		</div>
+	</div>
+	
+    
+</div>

@@ -1,35 +1,21 @@
-﻿/**
- * Created by lenovo on 2018/3/8.
- */
+﻿
 var addsModule = angular.module("app.addStu", []);
-addsModule.controller('addStuController',['$scope', '$http', '$location',
-		function($scope, $http, $location) {
-			$scope.show2 = false;
-			$scope.show3 = false;
-			$scope.sub1 = '';
-			$scope.sub2 = '';
-			$scope.sub3 = '';
-			$scope.newSub = function() {
-				if ($scope.sub1 != '' && $scope.show2 == '') {
-					$scope.show2 = true;
-				} else if ($scope.sub1 != '' && $scope.sub2 != '') {
-					$scope.show3 = true;
-				} else {
-
-				}
-			};
-			$scope.showMess = false;
+addsModule.controller('addStuController',['$scope', '$http', '$location', '$routeParams',
+		function($scope, $http, $location, $routeParams) {
+			$scope.inpts = [''];
+			$scope.sub = [];
+		    $scope.newSub = function () {
+		        var newin = [''];
+		        $scope.inpts.push(newin);
+		    };
+		    
+		    $scope.delSub = function ($index) {
+		        $scope.inpts.splice($index, 1);
+		        $scope.sub.splice($index, 1);
+		        //从$index位置开始删除一个元素，即删除当前元素
+		    }
 			$scope.add = function(){
-				var subs = [];
-				if($scope.sub1 != ''){
-					subs.push($scope.sub1);
-				}
-				if($scope.sub2 != ''){
-					subs.push($scope.sub2);
-				}
-				if($scope.sub3 != ''){
-					subs.push($scope.sub3);
-				}
+				var subs = $scope.sub;
 				var user = {
 						sNo: $scope.sno,
 						sPassword: $scope.pwd,
@@ -54,13 +40,35 @@ addsModule.controller('addStuController',['$scope', '$http', '$location',
 				}).then(function successCallBack(response){
 					$scope.showMess = true;
 					$scope.mess = response.data.mess;
-					if(response.data.mess == 'success'){
-						$location.path('/a_sMess');
+					if(response.data.mess == 'success'){	
+						if($routeParams.tno){
+							$location.path('/t_stu/'+$routeParams.tno);
+						}else{
+							$location.path('/a_sMess');
+						}						
 					}
 					
+				});	            
+			}
+			if($routeParams.tno){
+				$http({
+					method: 'POST',
+					url: 'FindTeaSubServlet',
+					params: {tNo: $routeParams.tno}
+				}).then(function successCallBack(response){
+					$scope.subjects = response.data;
+				}, function errorCallBack(){
+					console.log("失败");
+				});	
+			}else{
+				$http({
+					method: 'POST',
+					url: 'FindSubMessServlet'
+				}).then(function successCallBack(subMess){
+					$scope.subjects = subMess.data;
+				}, function errorCallBack(){
+					console.log("失败");
 				});
-	            
-
 			}
 			
 		} ]);

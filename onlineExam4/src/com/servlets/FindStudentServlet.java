@@ -42,67 +42,66 @@ public class FindStudentServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=utf-8");
-		String sNo = request.getParameter("sNo").replaceAll(" ", "");
-		String sName = request.getParameter("sName");
+		String findSno = request.getParameter("findSno");
+		String findSname = request.getParameter("findSname");
+		String findMajor = request.getParameter("findMajor");
+		String findYear = request.getParameter("findYear");
+		String findClass = request.getParameter("findClass");
+		String flag = request.getParameter("flag");
+		
 		String mess = null;
 		String sql;
 		DataProcess dataProcess = new DataProcess();
 		Vector<Vector<String>> rows;
-		if(sNo == "" && sName == ""){
-			mess = "请输入查询关键字";
+		if(flag.equals("findBySno")){
+			sql = "select * from Student where sNo = '" + findSno + "'";
+		}else if(flag.equals("findBySname")){
+			sql = "select * from Student where sName = '"+ findSname +"'";
+		}else if(flag.equals("findByMajor")){
+			sql = "select * from Student where major = '"+ findMajor +"'";
+		}else if(flag.equals("findByYear")){
+			if(findMajor.equals("暂无")){
+				sql = "select * from Student where year = '"+ findYear +"'";
+			}else{
+				sql = "select * from Student where major = '"+ findMajor +"' and year = '"+ findYear +"'";
+			}
+		}else if(flag.equals("findByClass")){
+			if(!findMajor.equals("暂无") && !findYear.equals("暂无")){
+				sql = "select * from Student where major = '"+ findMajor +"' and year = '"+ findYear +"' and class = '"+ findClass +"'";
+			}else if(!findMajor.equals("暂无")){
+				sql = "select * from Student where major = '"+ findMajor +"' and class = '"+ findClass +"'";
+			}else if(!findYear.equals("暂无")){
+				sql = "select * from Student where year = '"+ findYear +"' and class = '"+ findClass +"'";
+			}else{
+				sql = "select * from Student where class = '"+ findClass +"'";
+			}
+		}else{
+			sql = "select * from Student";
+		}
+		rows = dataProcess.getData(sql);
+		if(rows.size() == 0){
+			mess = "查询的学生不存在";
 			String jsonStr = "{ \"mess\" : \"" + mess + "\"}";
 			response.getWriter().print(jsonStr);
-		}
-		if(sNo != "" && sNo != null){
-			sql = "select * from Student where sNo = '" + sNo + "'";
-			rows = dataProcess.getData(sql);
-			if(rows.size() == 0){
-				mess = "不存在该学生";
-				String jsonStr = "{ \"mess\" : \"" + mess + "\"}";
-				response.getWriter().print(jsonStr);
-			}else{
-				Vector<String> oneStu;
-				String[] stuMess = new String[rows.size()];
-				for(int i = 0; i < rows.size(); i++){
-					oneStu = rows.get(i);
-					stuMess[i] = "{ \"sno\": \" " + oneStu.get(0) + " \","
-							+ "\"password\": \" " + oneStu.get(1) + " \","
-							+ "\"name\": \" " + oneStu.get(2) + " \","
-							+ "\"sex\": \" " + oneStu.get(3) + " \","
-							+ "\"major\": \" " + oneStu.get(4) + " \","
-							+ "\"year\": \" " + oneStu.get(5) + " \","
-							+ "\"clas\": \" " + oneStu.get(6) + " \""
-							+ "}"; 
-				}
-				String jsonStr = Arrays.toString(stuMess);
-				response.getWriter().print(jsonStr);
+			return;
+		}else{
+			Vector<String> oneStu;
+			String[] stuMess = new String[rows.size()];
+			for(int i = 0; i < rows.size(); i++){
+				oneStu = rows.get(i);
+				stuMess[i] = "{ \"sno\": \"" + oneStu.get(0).replaceAll(" ", "") + "\","
+						+ "\"password\": \"" + oneStu.get(1).replaceAll(" ", "") + "\","
+						+ "\"name\": \"" + oneStu.get(2).replaceAll(" ", "") + "\","
+						+ "\"sex\": \"" + oneStu.get(3).replaceAll(" ", "") + "\","
+						+ "\"major\": \"" + oneStu.get(4).replaceAll(" ", "") + "\","
+						+ "\"year\": \"" + oneStu.get(5).replaceAll(" ", "") + "\","
+						+ "\"clas\": \"" + oneStu.get(6).replaceAll(" ", "") + "\""
+						+ "}"; 
 			}
-		}
-		if(sName != "" && sName != null){
-			sql = "select * from Student where sName = '" + sName + "'";
-			rows = dataProcess.getData(sql);
-			if(rows.size() == 0){
-				mess = "不存在该学生";
-				String jsonStr = "{ \"mess\" : \"" + mess + "\"}";
-				response.getWriter().print(jsonStr);
-			}else{
-				Vector<String> oneStu;
-				String[] stuMess = new String[rows.size()];
-				for(int i = 0; i < rows.size(); i++){
-					oneStu = rows.get(i);
-					stuMess[i] = "{ \"sno\": \" " + oneStu.get(0) + " \","
-							+ "\"password\": \" " + oneStu.get(1) + " \","
-							+ "\"name\": \" " + oneStu.get(2) + " \","
-							+ "\"sex\": \" " + oneStu.get(3) + " \","
-							+ "\"major\": \" " + oneStu.get(4) + " \","
-							+ "\"year\": \" " + oneStu.get(5) + " \","
-							+ "\"clas\": \" " + oneStu.get(6) + " \""
-							+ "}"; 
-				}
-				String jsonStr = Arrays.toString(stuMess);
-				response.getWriter().print(jsonStr);
-			}
+			String jsonStr = Arrays.toString(stuMess);
+			response.getWriter().print(jsonStr);
 		}
 	}
+		
 
 }

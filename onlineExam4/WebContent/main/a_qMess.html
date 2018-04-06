@@ -1,0 +1,73 @@
+<nav>
+    <a href="#/">首页</a>
+    <span> > </span>
+    <span>试题信息</span>
+</nav>
+<div class="questionsMess">	
+	<div class="find">
+        <input type="text" placeholder="请输入关键字" ng-model="byEname"><button ng-click="findByEname()">按考试名查找</button>
+        <input type="text" placeholder="请输入关键字" ng-model="byQtitle"><button ng-click="findByQtitle()">按题目查找</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button ng-show="byEname!=''||byQtitle!=''" ng-click="reload()">全部题目</button>
+    </div>
+    <div class="qusetionList">
+	    <ul class="title">
+	        <li>序号</li><li>所属考试</li><li>题号</li><li>类型</li><li>分值</li>
+	        <li>题干</li><li>详情</li><li>操作</li>
+	    </ul>
+	    
+	    <ul ng-repeat="question in questions track by $index">
+	        <li>{{$index+1}}</li><li>{{question.eName}}</li><li>{{question.qNo}}</li><li>{{question.qType}}</li><li>{{question.qScore}}</li>
+	        <li>{{question.qTitle}}</li><li><a href="javascript:;" ng-click="detail(question.qNo, question.qType, question.qScore, question.qTitle, question.qSelection, question.qAnswer)">查看</a></li>
+	        <li><a href="javascript:;" ng-click="updateClick(question.id, question.qNo, question.qType, question.qScore, question.qTitle, question.qSelection, question.qAnswer)">修改</a> <a href="javascript:;" ng-click="delQuestion(question.id)">删除</a></li>
+	    </ul>
+    </div>
+    <div class="mask" ng-show="updating || seeDetail"></div>
+	<div class="updateBox" ng-show="updating">
+		<div class="updateTop"><span class="title">修改</span><span class="closeUpBox" ng-click="updating=false">×</span></div>
+		<ul>
+			<li><input type="hidden" ng-model="upId">
+				<span class="describe">题号：</span><input type="number" class="upQno" ng-model="upQno" placeholder="请输入数字"></li>
+			<li><span class="describe">题目类型：</span>
+				<select class="upQtype" ng-model="upQtype">	
+					<option value="单选题">单选题</option>
+					<option value="多选题">多选题</option>
+					<option value="判断题">判断题</option>
+				</select>
+			</li>
+			<li><span class="describe">题目分值：</span><input type="number" class="upQscore" ng-model="upQscore" placeholder="请输入数字">分</li>	
+			<li><span class="describe">题干：</span><textarea ng-model="upQtitle"></textarea></li>
+			<li ng-hide="upQtype=='判断题'">
+				<span>选项设置：</span><button class="addBtn" ng-click="addSelect()">增加选项</button>
+				<div ng-repeat="upSelect in upSelects track by $index">
+					选项{{upSelect.selectNo}} <textarea ng-model="upSelect.selection"></textarea>
+					<button class="delBtn" ng-click="delSelect($index)" ng-show="$index==upSelects.length-1 && $index!=0">×</button>
+				</div>			
+			</li>
+			<li><span class="describe">答案：</span><input type="text" class="upQanswer" ng-model="upQanswer" placeholder="请输入字母A/BC/T/F"></li>
+			<li><span class="upMess">{{upMess}}</span><button class="upBtn" ng-click="update()">确认修改</button></li>	
+		</ul>
+	</div>
+	<div class="quesDetail" ng-show="seeDetail">
+		<div class="detailTop"><span class="title">详情</span><span class="closeDetail" ng-click="seeDetail=false">×</span></div>
+		<div class="question">			
+			<div class="quesTitle"><span>{{detailQno}}</span><span>{{detailQtype}}</span> <span>{{detailQtitle}}</span> <span>({{detailQscore}}分)</span></div>
+			<div class="queSelection" ng-show="detailQtype=='单选题'">
+				<div ng-repeat="select in detailQselection track by $index">
+					<input type="radio" name="preRadio"> <span>{{select.selectNo}}.</span> <span>{{select.selection}}</span>
+				</div>
+				<div class="quesAnswer">答案：{{detailQanswer}}</div>
+			</div>
+			<div class="queSelection" ng-show="detailQtype=='多选题'">
+				<div ng-repeat="select in detailQselection track by $index">
+					<input type="checkbox" name="preMulti"> <span>{{select.selectNo}}.</span> <span>{{select.selection}}</span>
+				</div>
+				<div class="quesAnswer">答案：{{detailQanswer}}</div>
+			</div>
+			<div class="queJudge" ng-show="detailQtype=='判断题'">
+				<div>正确 <input type="radio" value="T" name="judgeSelect"></div>
+				<div>错误 <input type="radio" value="F" name="judgeSelect"></div>
+				<div class="quesAnswer">答案：{{detailQanswer}}</div>
+			</div>			
+		</div>
+	</div>
+</div>

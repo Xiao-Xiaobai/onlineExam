@@ -1,0 +1,60 @@
+<nav>
+    <a href="#/">首页</a>
+    <span> > </span>    
+    <span>我的课程</span>
+</nav>
+<div class="teacherSub">
+	<div class="list">
+	    <ul>
+	        <li>序号</li><li>课程号</li><li>课程名</li><li>操作</li>
+	    </ul>
+	
+	    <ul ng-repeat="teaSub in teaSubs track by $index">
+	        <li>{{$index+1}}</li><li>{{teaSub.subNo}}</li><li>{{teaSub.subName}}</li>
+	        <li><a href="javascript:;" ng-click="addToClick(teaSub.subNo, teaSub.subName)">将此课程添加到班级</a></li>
+	    </ul>
+	    <p ng-bind="mess" class="mess"></p>
+	    
+    </div>
+    <div class="mask" ng-show="toClass"></div>
+    <div class="toClassBox" ng-show="toClass">
+		<div class="closeUpBox" ng-click="toClass=false">×</div>
+		<ul>
+			<li><span>课程号：</span><input type="text" class="txt" ng-model="toClassSubNo" disabled="disabled"></li>
+			<li><span>课程名：</span><input type="text" class="txt" ng-model="toClassSubName" disabled="disabled"></li>
+			<li>
+				<span>专业：</span>
+	            <select ng-model="major" ng-init="major='暂无'">
+	                <option value="暂无" ng-show="false">请选择专业</option>
+	                <option value="计算机科学与技术">计算机科学与技术</option>
+	                <option value="医学信息工程">医学信息工程</option>
+	                <option value="卫生检验与检疫">卫生检验与检疫</option>
+	                <option value="医学检验技术">医学检验技术</option>
+	                <option value="听力与言语康复">听力与言语康复</option>
+	            </select>
+	            &nbsp;&nbsp;
+	            <span>年级：</span>
+	            <select ng-model="year" ng-init="year='暂无'">
+	                <option value="暂无" ng-show="false">请选择年级</option>
+	                <option value="2014级">2014级</option>
+	                <option value="2015级">2015级</option>
+	                <option value="2016级">2016级</option>
+	                <option value="2017级">2017级</option>
+	                <option value="2018级">2018级</option>
+	            </select>
+	            &nbsp;&nbsp;
+	            <span>班级：</span>
+	            <select ng-model="clas" ng-init="clas='暂无'">
+	                <option value="暂无" ng-show="false">请选择班级</option>
+	                <option value="1班">1班</option>
+	                <option value="2班">2班</option>
+	                <option value="3班">3班</option>
+	                <option value="4班">4班</option>
+	                <option value="5班">5班</option>
+	            </select>
+			</li>
+			<li><p ng-show="upMess2">{{upMess2}}</p></li>
+			<li><button class="btn" ng-click="addToClass()">将《{{toClassSubName}}》添加到该班级</button></li>
+		</ul>
+	</div>
+</div>

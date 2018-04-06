@@ -41,24 +41,36 @@ public class a_sBaseMessServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
-		String sql = "select * from Student order by sNo";
+		String sNo = request.getParameter("sNo");
+		String flag = request.getParameter("flag");
+		
+		String sql;
 		DataProcess dataProcess = new DataProcess();
+		if(flag == null){
+			sql = "select * from Student order by sNo";	
+		}else if(flag.equals("studentQuery")){
+			sql = "select * from Student where sNo = '"+ sNo +"'";
+		}else{
+			sql = "select * from Student";
+		}
 		Vector<Vector<String>> stus = dataProcess.getData(sql);
 		Vector<String> oneStu;
 		String[] stuMess = new String[stus.size()];
 		for(int i = 0; i < stus.size(); i++){
 			oneStu = stus.get(i);
-			stuMess[i] = "{ \"sno\": \" " + oneStu.get(0) + " \","
-					+ "\"password\": \" " + oneStu.get(1) + " \","
-					+ "\"name\": \" " + oneStu.get(2) + " \","
-					+ "\"sex\": \" " + oneStu.get(3) + " \","
-					+ "\"major\": \" " + oneStu.get(4) + " \","
-					+ "\"year\": \" " + oneStu.get(5) + " \","
-					+ "\"clas\": \" " + oneStu.get(6) + " \""
+			stuMess[i] = "{ \"sno\": \"" + oneStu.get(0).replaceAll(" ", "") + "\","
+					+ "\"password\": \"" + oneStu.get(1).replaceAll(" ", "") + "\","
+					+ "\"name\": \"" + oneStu.get(2).replaceAll(" ", "") + "\","
+					+ "\"sex\": \"" + oneStu.get(3).replaceAll(" ", "") + "\","
+					+ "\"major\": \"" + oneStu.get(4).replaceAll(" ", "") + "\","
+					+ "\"year\": \"" + oneStu.get(5).replaceAll(" ", "") + "\","
+					+ "\"clas\": \"" + oneStu.get(6).replaceAll(" ", "") + "\""
 					+ "}"; 
 		}
 		String jsonStr = Arrays.toString(stuMess);
+		//System.out.println(jsonStr);
 		response.getWriter().print(jsonStr);
 	}
 

@@ -10,7 +10,16 @@
 .fr{
     float: right;
 }
-
+/*公共main区域nav*/
+nav{
+    line-height: 40px;
+    padding-left: 20px;
+    background-color: #dddddd;
+}
+/*点击时的背景颜色  */
+.active{
+    background-color: #cccccc;
+}
 /*header设置开始*/
 .header{
     background: url("../images/top_bg.jpg") no-repeat top;
@@ -36,7 +45,7 @@
 }
 /*footer设置结束*/
 
-/*登录表单设置开始*/
+/*登录页面设置开始*/
 .content .inner_center{
     height: 500px;
     background: url("../images/login_background.png") no-repeat center;
@@ -84,21 +93,15 @@
 }
 /*登录区域设置结束*/
 
-/*公共main区域nav设置开始*/
-nav{
-    line-height: 40px;
-    padding-left: 20px;
-    background-color: #dddddd;
-}
 
 /*a_index样式设置开始*/
 .a_content{
-    height: 700px;
+    height: 900px;
 }
 /*a_index左侧区域  */
 .a_content .left_side{
     width: 150px;
-    height: 700px;
+    height: 890px;
     background-color: #d8d8d8;
     margin-right: 10px;
     padding-top: 10px;
@@ -119,20 +122,25 @@ nav{
 .a_content .left_side li a.tea{
     background: url("../images/menu_users.png") no-repeat 8px;
 }
+.a_content .left_side li a.sub{
+    background: url("../images/menu_sub.png") no-repeat 8px;
+}
+.a_content .left_side li a.exam{
+    background: url("../images/menu_test.png") no-repeat 8px;
+}
 .a_content .left_side li a.paper{
     background: url("../images/menu_paper.png") no-repeat 8px;
 }
 .a_content .left_side li a.analy{
     background: url("../images/menu_analysis.png") no-repeat 8px;
 }
-.a_content .left_side li.active{
-    background-color: #cccccc;
-}
+
 /*a_index右侧内容区域 */
 .a_content .main {
     width: 790px;
-    height: 700px;
+    height: 900px;
     background-color: #eeeeee;
+    overflow: auto;
 }
 
 /*index_default设置开始*/
@@ -147,85 +155,98 @@ nav{
     font: 500 20px/200% 'SimSun';
     background-color: #e8e8e8;
 }
-.main_help .teacher_help{
+.main_help .teacher_help .help_img{
     height: 158px;
 }
-.main_help .teacher_help li{
+.main_help .teacher_help .help_img li{
     width: 150px;
     float: left;
 }
-.main_help .teacher_help li div{
+.main_help .teacher_help .help_img li div{
     width: 60px;
     height: 60px;
     margin-left: 25px;
 }
-.main_help .teacher_help li div.img1{
+.main_help .teacher_help .help_img li div.img1{
      background: url("../images/add_student.jpg") no-repeat center;
 }
-.main_help .teacher_help li div.img2{
+.main_help .teacher_help .help_img li div.img2{
     background: url("../images/add_paper.jpg") no-repeat -6px -16px;
 }
-.main_help .teacher_help li div.img3{
+.main_help .teacher_help .help_img li div.img3{
     background: url("../images/check_grade.jpg") no-repeat -12px -38px;
 }
-.main_help .teacher_help li div.img4{
+.main_help .teacher_help .help_img li div.img4{
     background: url("../images/check_analysis.jpg") no-repeat center;
 }
-.main_help .teacher_help li p{
+.main_help .teacher_help .help_img li p{
     /*text-align: center;*/
     margin-left: 25px;
 }
-
-.main_help .student_help{
-    height: 158px;
-    margin-top: 20px;
+.main_help .help_detail li{
+	line-height: 40px;
 }
-.main_help .student_help li{
+.main_help .student_help{
+	margin-top: 20px;
+}
+.main_help .student_help .help_img{
+    height: 158px;    
+}
+.main_help .student_help .help_img li{
     width: 150px;
     float: left;
 }
-.main_help .student_help li div{
+.main_help .student_help .help_img li div{
     width: 60px;
     height: 60px;
     margin-left: 25px;
 }
-.main_help .student_help li div.img5{
+.main_help .student_help .help_img li div.img5{
     background: url("../images/wait_test.jpg") no-repeat top;
 }
-.main_help .student_help li div.img6{
+.main_help .student_help .help_img li div.img6{
     background: url("../images/start_test.jpg") no-repeat right bottom;
 }
-.main_help .student_help li div.img7{
+.main_help .student_help .help_img li div.img7{
     background: url("../images/selfgrade.jpg") no-repeat center;
 }
-.main_help .student_help li div.img8{
+.main_help .student_help .help_img li div.img8{
     background: url("../images/selfinfo.jpg") no-repeat center;
 }
-.main_help .student_help li p{
+.main_help .student_help .help_img li p{
     /*text-align: center;*/
     margin-left: 25px;
 }
 /*index_default页面样式设置结束*/
 
 /*a_sMess页面样式设置开始*/
-.stuMess div.find{
-    margin: 20px 0;
+.stuMess .find{
+    padding: 20px 0;
 }
-.stuMess div.find input{
+.stuMess .find .findOne input{
     width: 130px;
     height: 24px;
     padding-left: 8px;
-    margin-left: 100px;
+    margin-left: 80px;
 }
-.stuMess div.find button{
-    width: 100px;
+.stuMess .find .findGroup{
+	margin-top: 8px;
+}
+.stuMess .find .findGroup select{
+	border: 1px solid #ccc;
+	padding: 4px 6px;
+	border-radius: 4px;
+	margin-left: 30px;
+}
+.stuMess .find button{
+    width: 90px;
     height: 24px;
     background-color: #e0e0e0;
 }
-.stuMess div.find button:hover{
+.stuMess .find button:hover{
     background-color: #c3c3c3;
 }
-.stuMess ul:nth-child(even){
+.stuMess ul:nth-of-type(odd){
     background-color: #e0e0e0;
 }
 .stuMess ul:hover{
@@ -233,7 +254,6 @@ nav{
 }
 .stuMess ul.title{
     font-weight: bold;
-    background-color: #e0e0e0;
 }
 .stuMess ul li{
     display: inline-block;
@@ -260,25 +280,103 @@ nav{
 }
 /*a_sMess样式设置结束  */
 
+
 /*hisTest查看历史考试信息 页面样式设置开始 */
-.hisTest ul:first-child{
+.hisTest .hisTestlist ul:first-child{
     font-weight: bold;
 }
-.hisTest ul li{
+.hisTest .hisTestlist ul:nth-of-type(even){
+	background-color: #e0e0e0;
+}
+.hisTest .hisTestlist ul:hover{
+    background-color: #c3c3c3;
+}
+.hisTest .hisTestlist ul li{
     display: inline-block;
     width: 120px;
     text-align: center;
+    vertical-align: middle;
+}
+.hisTest .hisTestlist p.mess{
+	text-align: center;
+	color: #1a68ff;
+}
+.hisTest{
+	position: relative;
+	top: 0;
+	left: 0;
+}
+.hisTest .mask{
+	width: 100%;
+	height: 860px;
+	background-color: rgba(0, 0, 0, 0.3);
+	position: absolute;
+	top: 0;
+	left:0;	
+}
+.hisTest .updateBox{
+	width: 500px;
+	height:300px;
+	background-color: #eee;
+	position: absolute;
+	top: 100px;
+	left: 50%;
+	margin-left: -200px;
+}
+.hisTest .updateBox .closeUpBox{
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	right: 10px;
+	cursor: pointer;
+}
+.hisTest .updateBox ul{
+	margin: 10px;
+}
+.hisTest .updateBox li{
+    height: 40px;
+}
+.hisTest .updateBox input.txt{
+    width: 200px;
+    height: 26px;
+    padding-left: 8px;
+    font-size: 14px;
+}
+.hisTest .updateBox .btn{
+    width: 60px;
+    height: 30px;
+    background-color: #acacac;
+    border-radius: 7px;
+    font-size: 16px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    margin-left: -30px;
+}
+.hisTest .updateBox .btn:hover{
+    background-color: #8e8e8e;
 }
 /*hisTest样式设置结束  */
 
-/*hisTest查看待考试信息 页面样式设置开始 */
+/*waitTest查看待考试信息 页面样式设置开始 */
 .waitTest ul:first-child{
     font-weight: bold;
+}
+.waitTest ul:nth-of-type(even){
+	background-color: #e0e0e0;
+}
+.waitTest ul:hover{
+    background-color: #c3c3c3;
 }
 .waitTest ul li{
     display: inline-block;
     width: 150px;
     text-align: center;
+    vertical-align: middle;
+}
+.waitTest p.mess{
+	text-align: center;
+	color: #1a68ff;
 }
 /*waitTest样式设置结束  */
 
@@ -290,6 +388,10 @@ nav{
 .addStu li{
     height: 50px;
 }
+.addStu li.subinfo{
+    height: auto;
+    margin-top: 20px;
+}
 .addStu input.txt{
     width: 200px;
     height: 26px;
@@ -297,28 +399,32 @@ nav{
     font-size: 14px;
 }
 .addStu input.subTxt{
-    width: 140px;
+    width: 170px;
     height: 26px;
-    padding-left: 4px;
+    padding-left: 6px;
 }
 .addStu button.plusBtn{
+    width: 100px;
+    line-height: 20px;
+    background: url("../images/plus.png") no-repeat left #bbbbbb;
+}
+.addStu button.delBtn{
     width: 20px;
     height: 20px;
-    background: url("../images/plus.jpg") no-repeat;
+    background: url("../images/delBtn.png") no-repeat ;
 }
 .addStu p.mess{
     color: #ff4730;
     font-weight: bold;
-    padding-left: 100px;
+    margin-left: 300px;
 }
 .addStu .btn{
     width: 60px;
     height: 30px;
     background-color: #acacac;
     border-radius: 7px;
-    /*border-color: #8894c8;*/
     font-size: 16px;
-    margin-left: 200px;
+    margin-left: 300px;
 }
 .addStu .btn:hover{
     background-color: #8e8e8e;
@@ -358,15 +464,1957 @@ nav{
 }
 /*updateStu页面样式设置结束  */
 
-/*stuSub学生的课程信息页面样式设置开始  */
-.stuSub ul:first-child{
+/*stuSub学生的课程信息页面样式设置开始  
+  部分与teaSub共用*/
+.list ul:first-child{
     font-weight: bold;
 }
-.stuSub ul li{
+.list ul li{
     display: inline-block;
     width: 120px;
     text-align: center;
+    vertical-align: middle;
 }
-.stuSub p.mess{
+.stuSub .list ul li:nth-child(4){
+	width: 180px;
+}
+.stuSub .list ul li:nth-last-child(-n+3){
+	width: 80px;
+}
+.list p.mess{
 	text-align: center;
+	color: #1a68ff;
+}
+.list .addSubBtn{
+	width: 150px;
+	margin: 20px auto;
+}
+.list .addSubBtn button{
+	width: 150px;
+	background-color: #cccccc;
+	border-radius: 7px;	
+}
+.list .addSubBtn button:hover{
+	background-color: #bbbbbb;
+}
+.list .addSubShow{
+	width: 300px;
+	margin: 0 auto;
+	background-color: #dddddd;
+	padding: 10px;
+}
+.list .addSubShow input.subTxt{
+    width: 160px;
+    height: 26px;
+    padding-left: 6px;
+    margin:0;
+}
+.list .addSubShow button.plusBtn{
+    width: 100px;
+    line-height: 20px;
+    background: url("../images/plus.png") no-repeat left #bbbbbb;
+}
+.list .addSubShow button.delBtn{
+    width: 20px;
+    height: 20px;
+    background: url("../images/delBtn.png") no-repeat ;
+}
+.list .addSubShow button.btn{
+    width: 60px;
+    height: 30px;
+    background-color: #acacac;
+    border-radius: 7px;
+    font-size: 16px;
+    margin-left: 220px;
+}
+.stuSub{
+	position: relative;
+	top: 0;
+	left: 0;
+}
+.stuSub .mask{
+	width: 100%;
+	height: 860px;
+	background-color: rgba(0, 0, 0, 0.3);
+	position: absolute;
+	top: 0;
+	left:0;	
+}
+.stuSub .updateBox{
+	width: 500px;
+	height:350px;
+	background-color: #eee;
+	position: absolute;
+	top: 100px;
+	left: 50%;
+	margin-left: -250px;
+}
+.stuSub .updateBox .closeUpBox{
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	right: 10px;
+	cursor: pointer;
+}
+.stuSub .updateBox ul{
+	margin: 10px;
+}
+.stuSub .updateBox li{
+    height: 40px;
+}
+.stuSub .updateBox input.txt{
+    width: 200px;
+    height: 26px;
+    padding-left: 8px;
+    font-size: 14px;
+}
+.stuSub .updateBox .btn{
+    width: 60px;
+    height: 30px;
+    background-color: #acacac;
+    border-radius: 7px;
+    font-size: 16px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    margin-left: -30px;
+}
+.stuSub .updateBox .btn:hover{
+    background-color: #8e8e8e;
+}
+
+/*a_tMess样式设置开始  */
+.teaMess div.find{
+    margin: 20px 0;
+}
+.teaMess div.find input{
+    width: 130px;
+    height: 24px;
+    padding-left: 8px;
+    margin-left: 80px;
+}
+.teaMess div.find button{
+    width: 100px;
+    height: 24px;
+    background-color: #e0e0e0;
+}
+.teaMess div.find button:hover{
+    background-color: #c3c3c3;
+}
+.teaMess ul:nth-of-type(odd){
+    background-color: #e0e0e0;
+}
+.teaMess ul:hover{
+    background-color: #c3c3c3;
+}
+.teaMess ul.title{
+    font-weight: bold;
+}
+.teaMess ul li{
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+}
+
+/*a_tMess样式设置结束  */
+
+/*updateTea 修改教师基本信息页面设置开始  */
+.updateTea{
+    margin-top: 30px;
+    margin-left: 50px;
+}
+.updateTea li{
+    height: 50px;
+}
+.updateTea input.txt{
+    width: 200px;
+    height: 26px;
+    padding-left: 8px;
+    font-size: 14px;
+}
+.updateTea p.mess{
+    color: #ff4730;
+    font-weight: bold;
+    padding-left: 100px;
+}
+.updateTea .btn{
+    width: 60px;
+    height: 30px;
+    background-color: #acacac;
+    border-radius: 7px;
+    font-size: 16px;
+    margin-left: 200px;
+}
+.updateTea .btn:hover{
+    background-color: #8e8e8e;
+}
+/*updateTea 样式设置结束  */
+
+/*teaSub 教师授课信息  
+  部分与stuSub共用*/
+.teaSub .list ul li{
+	width: 150px;
+}
+
+/*teaSub 页面样式设置结束  */
+
+/*teaClass 教师授课班级列表 页面样式设置开始  */
+.teaClass .list ul li:last-child{
+	width: 150px;
+}
+.teaClass .list .addClassBtn{
+	width: 150px;
+	margin: 20px auto;
+}
+.teaClass .list .addClassBtn button{
+	width: 150px;
+	background-color: #cccccc;
+	border-radius: 7px;	
+}
+.teaClass .list .addClassBtn button:hover{
+	background-color: #bbbbbb;
+}
+.teaClass .list .addClassShow{
+	width: 500px;
+	margin: 0 auto;
+	background-color: #dddddd;
+	padding: 10px;
+}
+.teaClass .list .addClassShow button.plusBtn{
+    width: 100px;
+    line-height: 20px;
+    background: url("../images/plus.png") no-repeat left #bbbbbb;
+}
+.teaClass .list .addClassShow button.btn{
+    width: 60px;
+    height: 30px;
+    background-color: #acacac;
+    border-radius: 7px;
+    font-size: 16px;
+    margin-left: 220px;
+}
+.teaClass{
+	position: relative;
+	top: 0;
+	left: 0;
+}
+.teaClass .mask{
+	width: 100%;
+	height: 860px;
+	background-color: rgba(0, 0, 0, 0.3);
+	position: absolute;
+	top: 0;
+	left:0;	
+}
+.teaClass .updateBox{
+	width: 500px;
+	height:300px;
+	background-color: #eee;
+	position: absolute;
+	top: 100px;
+	left: 50%;
+	margin-left: -250px;
+}
+.teaClass .updateBox .closeUpBox{
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	right: 10px;
+	cursor: pointer;
+}
+.teaClass .updateBox ul{
+	margin: 10px;
+}
+.teaClass .updateBox li{
+    height: 40px;
+}
+.teaClass .updateBox input.txt{
+    width: 200px;
+    height: 26px;
+    padding-left: 8px;
+    font-size: 14px;
+}
+.teaClass .updateBox .btn{
+    width: 60px;
+    height: 30px;
+    background-color: #acacac;
+    border-radius: 7px;
+    font-size: 16px;
+    margin-left: 200px;
+    margin-top: 20px;
+}
+.teaClass .updateBox .btn:hover{
+    background-color: #8e8e8e;
+}
+
+
+/*addTea 新增教师页面样式设置开始  */
+.addTea{
+    margin-top: 30px;
+    margin-left: 50px;
+}
+.addTea li{
+    height: 50px;
+}
+.addTea li.classinfo{
+    height: auto;
+}
+.addTea li.subinfo{
+    height: auto;
+    margin-top: 40px;
+}
+.addTea input.txt{
+    width: 200px;
+    height: 26px;
+    padding-left: 8px;
+    font-size: 14px;
+}
+.addTea input.subTxt{
+    width: 170px;
+    height: 26px;
+    padding-left: 6px;
+}
+.addTea button.plusBtn{
+    width: 100px;
+    line-height: 20px;
+    background: url("../images/plus.png") no-repeat left #bbbbbb;
+}
+.addTea button.delBtn{
+    width: 20px;
+    height: 20px;
+    background: url("../images/delBtn.png") no-repeat ;
+}
+.addTea p.mess{
+    color: #ff4730;
+    font-weight: bold;
+    margin-left: 300px;
+}
+.addTea .btn{
+    width: 60px;
+    height: 30px;
+    background-color: #acacac;
+    border-radius: 7px;
+    font-size: 16px;
+    margin-left: 300px;
+}
+.addTea .btn:hover{
+    background-color: #8e8e8e;
+}
+/*addTea页面样式设置结束  */
+
+/*a_subMess样式设置开始  */
+.subMess .find{
+    padding: 20px 0;
+}
+.subMess .find input{
+    width: 130px;
+    height: 24px;
+    padding-left: 8px;
+    margin-left: 80px;
+}
+.subMess .find button{
+    width: 100px;
+    height: 24px;
+    background-color: #e0e0e0;
+}
+.subMess .find button:hover{
+    background-color: #c3c3c3;
+}
+.subMess .subList ul:nth-child(odd){
+    background-color: #e0e0e0;
+}
+.subMess .subList ul:hover{
+    background-color: #c3c3c3;
+}
+.subMess .subList ul.title{
+    font-weight: bold;
+
+}
+.subMess .subList ul li{
+    display: inline-block;
+    width: 140px;
+    text-align: center;
+    vertical-align: middle;
+}
+.subMess .subList ul li:nth-child(4){
+    width: 100px;
+}
+.subMess .subList ul li:nth-child(5){
+    width: 90px;
+}
+.subMess{
+	position: relative;
+	top: 0;
+	left: 0;
+}
+.subMess .mask{
+	width: 100%;
+	height: 860px;
+	background-color: rgba(0, 0, 0, 0.3);
+	position: absolute;
+	top: 0;
+	left:0;	
+}
+.subMess .updateBox{
+	width: 400px;
+	height:200px;
+	background-color: #eee;
+	position: absolute;
+	top: 100px;
+	left: 50%;
+	margin-left: -200px;
+}
+.subMess .updateBox .closeUpBox{
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	right: 10px;
+	cursor: pointer;
+}
+.subMess .updateBox ul{
+	margin: 10px;
+}
+.subMess .updateBox li{
+    height: 40px;
+}
+.subMess .updateBox input.txt{
+    width: 200px;
+    height: 26px;
+    padding-left: 8px;
+    font-size: 14px;
+}
+.subMess .updateBox .btn{
+    width: 60px;
+    height: 30px;
+    background-color: #acacac;
+    border-radius: 7px;
+    font-size: 16px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    margin-left: -30px;
+}
+.subMess .updateBox .btn:hover{
+    background-color: #8e8e8e;
+}
+.subMess .toClassBox{
+	width: 600px;
+	height:280px;
+	background-color: #eee;
+	position: absolute;
+	top: 100px;
+	left: 50%;
+	margin-left: -300px;
+}
+.subMess .toClassBox .closeUpBox{
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	right: 10px;
+	cursor: pointer;
+}
+.subMess .toClassBox ul{
+	margin: 30px;
+}
+.subMess .toClassBox li{
+    height: 40px;
+}
+.subMess .toClassBox input.txt{
+    width: 200px;
+    height: 26px;
+    padding-left: 8px;
+    font-size: 14px;
+}
+.subMess .toClassBox .btn{
+    height: 30px;
+    background-color: #acacac;
+    border-radius: 7px;
+    font-size: 16px;    
+    margin-left: 30px;
+    padding: 0 6px;
+}
+.subMess .toClassBox .btn:hover{
+    background-color: #8e8e8e;
+}
+/*a_subMess样式设置结束  */
+
+/*addSub 新增课程页面设置开始  */
+.addSub{
+    margin-top: 80px;
+    margin-left: 260px;
+}
+.addSub li{
+    height: 50px;
+}
+.addSub input.txt{
+    width: 200px;
+    height: 26px;
+    padding-left: 8px;
+    font-size: 14px;
+}
+.addSub p.mess{
+    color: #ff4730;
+    font-weight: bold;
+    margin-left: 30px;
+}
+.addSub .btn{
+    width: 60px;
+    height: 30px;
+    background-color: #acacac;
+    border-radius: 7px;
+    font-size: 16px;
+    margin-left: 100px;
+}
+.addSub .btn:hover{
+    background-color: #8e8e8e;
+}
+/*addSub样式设置结束  */
+
+/*a_eMess 样式设置开始  */
+.examMess .find{
+    padding: 20px 0;
+}
+.examMess .find input{
+    width: 130px;
+    height: 24px;
+    padding-left: 8px;
+    margin-left: 80px;
+}
+.examMess .find button{
+    width: 100px;
+    height: 24px;
+    background-color: #e0e0e0;
+}
+.examMess .find button:hover{
+    background-color: #c3c3c3;
+}
+.examMess .examlist ul:nth-child(odd){
+    background-color: #e0e0e0;
+}
+.examMess .examlist ul:hover{
+    background-color: #c3c3c3;
+}
+.examMess .examlist ul.title{
+    font-weight: bold;
+	margin-top: 10px;
+}
+.examMess .examlist ul li{
+    display: inline-block;
+    width: 50px;
+    text-align: center;
+    vertical-align: middle;
+}
+.examMess .examlist ul li:first-child{
+    width: 30px;
+}
+.examMess .examlist ul li:nth-child(2){
+    width: 220px;
+}
+.examMess .examlist ul li:nth-child(3){
+    width: 150px;
+}
+.examMess .examlist ul li:nth-child(6){
+    width: 140px;
+}
+.examMess .examlist ul li:last-child{
+    width: 70px;
+}
+.examMess .examlist .creator{
+	display: inline-block;
+	width: 140px;
+}
+.examMess .queryMess{
+	text-align: center;
+	padding-top: 20px;
+	color: #0000ff;
+}
+.examMess{
+	position: relative;
+	top: 0;
+	left: 0;
+}
+.examMess .mask{
+	width: 100%;
+	height: 860px;
+	background-color: rgba(0, 0, 0, 0.3);
+	position: absolute;
+	top: 0;
+	left:0;	
+}
+.examMess .updateBox{
+	width: 480px;
+	height:280px;
+	background-color: #eee;
+	position: absolute;
+	top: 100px;
+	left: 50%;
+	margin-left: -240px;
+}
+.examMess .updateBox .closeUpBox{
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	right: 10px;
+	cursor: pointer;
+}
+.examMess .updateBox ul{
+	margin: 10px;
+}
+.examMess .updateBox li{
+    height: 40px;
+}
+.examMess .eName, .eSub{
+    width: 260px;
+    height: 26px;
+    padding-left: 8px;
+    font-size: 14px;
+}
+.examMess .eTime, .eScore{
+    width: 140px;
+    height: 26px;
+    padding-left: 8px;
+    font-size: 14px;
+}
+.examMess .updateBox .btn{
+    width: 60px;
+    height: 30px;
+    background-color: #acacac;
+    border-radius: 7px;
+    font-size: 16px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    margin-left: -30px;
+}
+.examMess .updateBox .btn:hover{
+    background-color: #8e8e8e;
+}
+.examMess .toClassBox{
+	width: 600px;
+	height:280px;
+	background-color: #eee;
+	position: absolute;
+	top: 100px;
+	left: 50%;
+	margin-left: -300px;
+}
+.examMess .toClassBox .closeUpBox{
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	right: 10px;
+	cursor: pointer;
+}
+.examMess .toClassBox ul{
+	margin: 30px;
+}
+.examMess .toClassBox li{
+    height: 40px;
+}
+.examMess .toClassBox input.txt{
+    width: 300px;
+    height: 26px;
+    padding-left: 8px;
+    font-size: 14px;
+}
+.examMess .toClassBox .btn{
+    height: 30px;
+    padding: 0 6px;
+    background-color: #acacac;
+    border-radius: 7px;
+    font-size: 16px;
+    margin-left: 30px;
+}
+.examMess .toClassBox .btn:hover{
+    background-color: #8e8e8e;
+}
+/*a_eMess样式设置结束  */
+
+/*addExam 添加考试页面设置开始  */
+.addExam{
+    margin-top: 80px;
+    margin-left: 260px;
+}
+.addExam li{
+    height: 50px;
+}
+.addExam .eName, .eSub{
+    width: 260px;
+    height: 26px;
+    padding-left: 8px;
+    font-size: 14px;
+}
+.addExam .eTime, .eScore{
+    width: 140px;
+    height: 26px;
+    padding-left: 8px;
+    font-size: 14px;
+}
+.addExam p.mess{
+    color: #ff4730;
+    font-weight: bold;
+    margin-left: 20px;
+}
+.addExam .btn1{
+    width: 60px;
+    height: 30px;
+    background-color: #acacac;
+    border-radius: 7px;
+    font-size: 16px;
+    margin:30px 30px;
+}
+.addExam .btn2{
+    width: 130px;
+    height: 30px;
+    background-color: #acacac;
+    border-radius: 7px;
+    font-size: 16px;
+    margin:30px 30px;
+}
+.addExam button:hover{
+    background-color: #8e8e8e;
+}
+/*addExam添加考试样式设置结束  */
+
+/*addPaper添加试卷页面样式  */
+.addPaper .paperName{
+	padding: 20px 30px;
+}
+.addPaper .paperName .selectEname{
+	min-width: 200px;
+	height: 28px;
+	color: #555;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	padding: 4px 6px;
+	margin-right: 5px;
+}
+.addPaper .createPaper .oneItem{
+	margin-left: 30px;
+	width: 600px;
+	background-color: #fff;
+}
+.addPaper .createPaper .oneItem li{
+	border-top: 1px solid #ddd;
+	position: relative;
+	top: 0;
+	left: 0;
+}
+.addPaper .createPaper .oneItem li .describe{
+	display: inline-block;
+	width: 80px;
+	height: 30px;
+	vertical-align: middle;	
+	position: absolute;
+	left: 5px;
+	top: 50%;
+	margin-top: -15px;
+}
+.addPaper .createPaper .oneItem li .qNo, .qScore, .qType, .qTitle, .selections, .answers{
+	margin-left: 120px;
+	border-left: 1px solid #ddd;
+	padding: 10px;
+}
+.addPaper .createPaper .oneItem li .qScore .inputScore{
+	width: 80px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	padding: 4px 6px;
+}
+.addPaper .createPaper .oneItem li .qType select{
+	min-width: 80px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	padding: 4px 6px;
+}
+.addPaper .createPaper .oneItem li .qTitle textarea{
+	min-width: 280px;
+	min-height: 26px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	padding: 4px 6px;
+}
+.addPaper .createPaper .oneItem li .selections div:nth-child(n){
+	height: 60px;
+	vertical-align: middle;
+}
+.addPaper .createPaper .oneItem li .selections textarea{
+	min-width: 280px;
+	min-height: 30px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	padding: 4px 6px;
+}
+.addPaper .createPaper .oneItem li .selections .addBtn{
+	width: 80px;
+	border-radius: 7px;
+}
+.addPaper .createPaper .oneItem li .selections .hint{
+	color: #aaa;
+	margin-left: 100px;
+}
+.addPaper .createPaper .oneItem li .selections .delBtn{
+	width: 30px;
+	height: 30px;
+	color: red;
+	font-size: 26px;
+	font-weight: 400;
+}
+.addPaper .createPaper .oneItem .mess{
+	display: inline-block;
+	width: 250px;
+	padding-left: 5px;
+	color: red;
+}
+.addPaper .createPaper .oneItem .btn1{
+	width: 50px;
+	margin: 8px 20px 8px 0px;
+	border-radius: 6px;
+	background-color: #50a946;
+	color:#fff;
+	font-size: 14px;
+}
+.addPaper .createPaper .oneItem .btn2{
+	width: 124px;
+	margin: 8px 20px 8px 0;
+	border-radius: 6px;
+	background-color: #50a946;
+	color:#fff;
+	font-size: 14px;
+}
+.addPaper .createPaper .oneItem .btn3{
+	width: 50px;
+	margin: 8px 20px 8px 0;
+	border-radius: 6px;
+	background-color: #72adff;
+	color:#fff;
+	font-size: 14px;
+}
+.addPaper{
+	position: relative;
+	top: 0;
+	left: 0;
+}
+.addPaper .mask{
+	width: 100%;
+	height: 860px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.2);
+}
+.addPaper .previewBox{
+	width: 400px;
+	height: 300px;
+	position: absolute;
+	top: 100px;
+	left: 50%;
+	margin-left: -200px;
+	background-color: #fff;
+	overflow-y: auto;
+}
+.addPaper .previewBox .preTitle{
+	background-color: #72adff;
+}
+.addPaper .previewBox .preTitle .preTitle_text{
+	padding-left: 20px;
+	font-size: 16px;
+}
+.addPaper .previewBox .preTitle .preTitle_close{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	font-size: 16px;
+	position: absolute;
+	top: 0;
+	right: 8px;
+	cursor: pointer;
+}
+.addPaper .previewBox .preContent{
+	padding: 20px;
+}
+.addPaper .previewBox .preContent .preQtitle span:nth-of-type(1){
+	display: inline-block;
+	width: 20px;
+	line-height: 20px;
+	text-align: center;
+	background-color: #5B67FF;
+	margin-right: 5px;
+	color: #fff;
+}
+.addPaper .previewBox .preContent .preQtitle span:nth-of-type(2){
+	display: inline-block;
+	width: 50px;
+	line-height: 20px;
+	text-align: center;
+	background-color: #eee;
+	margin-right: 5px;
+}
+.addPaper .previewBox .preContent .preJudge{
+	padding-top: 10px;
+	padding-left: 30px;
+}
+.addPaper .previewBox .preContent .preSelection{
+	padding-top: 10px;
+	padding-left: 30px;
+}
+.addPaper .previewBox .preContent .preAnswer{
+	margin-top: 10px;
+	padding-left: 5px;
+	background-color: #F0FFC3;
+}
+/*addPaper页面设置结束  */
+
+/*a_pMess 查看试卷页面设置开始  */
+.paperMess{
+	position: relative;
+	top: 0;
+	left: 0;
+}
+.paperMess .paper{
+	width: 620px;
+	height: 830px;
+	margin: 0 auto;
+	padding: 10px 0;
+	background-color: #fff;
+	overflow-y: auto;	
+}
+.paperMess .paper .paperTitle{
+	text-align: center;
+	font-size: 24px;
+	font-weight: 500;
+	padding-top: 10px;
+	background-color: #ddd;
+}
+.paperMess .paper .paperMes{
+	text-align: center;
+	font-size: 20px;
+	font-weight: 400;
+}
+.paperMess .paper .paperMes span{
+	margin-right: 20px;
+	font-size: 18px;
+}
+.paperMess .paper .message{
+	margin: 20px auto;
+	width: 300px;
+	text-align: center;
+	background-color: #cee9f4;
+}
+.paperMess .paper .question{
+	width: 580px;
+	padding: 10px;
+	border-top: 1px dotted #ccc;
+	position: relative;
+	top: 0;
+	margin: 0;
+}
+.paperMess .paper .question .editAndDel{
+	position: absolute;
+	bottom: 0;
+	right: 10px;
+}
+.paperMess .paper .question .editAndDel .editBtn{
+	width: 24px;
+	height: 24px;
+	cursor: pointer;
+	background: url("../images/edit.png") no-repeat;
+}
+.paperMess .paper .question .editAndDel .delBtn{
+	width: 24px;
+	height: 24px;
+	cursor: pointer;
+	background: url("../images/delete.png") no-repeat;
+}
+.paperMess .paper .question .continueAdd{
+	width: 120px;
+	line-height: 30px;
+	text-align: center;
+	background-color: #96d0e9;
+	border-radius: 4px;
+	color: #fff;
+	position: absolute;
+	bottom: -30px;
+	left: 10px;
+}
+.paperMess .paper .question .quesTitle span:nth-of-type(1){
+	display: inline-block;
+	width: 20px;
+	line-height: 20px;
+	text-align: center;
+	background-color: #5B67FF;
+	margin-right: 5px;
+	color: #fff;
+}
+.paperMess .paper .question .quesTitle span:nth-of-type(2){
+	display: inline-block;
+	width: 50px;
+	line-height: 20px;
+	text-align: center;
+	background-color: #eee;
+	margin-right: 5px;
+}
+.paperMess .paper .question .queJudge{
+	padding-top: 10px;
+	padding-left: 30px;
+}
+.paperMess .paper .question .queSelection{
+	padding-top: 10px;
+	padding-left: 30px;
+}
+.paperMess .paper .question .quesAnswer{
+	width: 150px;
+	margin-top: 10px;
+	padding-left: 5px;
+	background-color: #F0FFC3;
+}
+.paperMess .paper .mask{
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.2);
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.paperMess .paper .updateBox{
+	width: 400px;
+	background-color: #fff;
+	position: absolute;
+	top: 100px;
+	left: 50%;
+	margin-left: -200px;
+}
+.paperMess .paper .updateBox .updateTop{
+	background-color: #f4b0a2;
+}
+.paperMess .paper .updateBox .updateTop .title{
+	padding-left: 20px;
+	font-size: 16px;
+}
+.paperMess .paper .updateBox .updateTop .closeUpBox{
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	right: 10px;
+	cursor: pointer;
+}
+.paperMess .paper .updateBox ul{
+	padding: 10px 20px;
+}
+.paperMess .paper .updateBox li{
+	padding: 10px 0;
+	border-bottom: 1px dotted #ccc;
+	vertical-align: middle;
+}
+.paperMess .paper .updateBox li:last-child{
+	border: none;
+}
+.paperMess .paper .updateBox li .describe{
+	display: inline-block;
+	width: 70px;
+}
+.paperMess .paper .updateBox .upQno{
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 4px 6px;
+	width: 80px;
+}
+.paperMess .paper .updateBox .upQtype{
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 4px 6px;
+}
+.paperMess .paper .updateBox .upQscore{
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 4px 6px;
+	width: 80px;
+}
+.paperMess .paper .updateBox textarea{
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	width: 250px;
+	height: 20px;
+}
+.paperMess .paper .updateBox .upQanswer{
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 4px 6px;
+}
+.paperMess .paper .updateBox .addBtn{
+	width: 80px;
+	border-radius: 7px;
+}
+.paperMess .paper .updateBox .delBtn{
+	width: 20px;
+	line-height: 20px;
+	color: red;
+	font-size: 18px;
+	font-weight: 400;
+}
+.paperMess .paper .updateBox .upBtn{
+	width: 80px;
+	border-radius: 7px;	
+}
+.paperMess .paper .updateBox .upMess{
+	display: inline-block;
+	width: 250px;
+	color: red;
+}
+/*a_pMess页面设置结束  */
+
+/*a_qMess题目列表 设置开始  */
+.questionsMess .find{
+    padding: 20px 0;
+}
+.questionsMess .find input{
+    width: 130px;
+    height: 24px;
+    padding-left: 8px;
+    margin-left: 80px;
+}
+.questionsMess .find button{
+    width: 100px;
+    height: 24px;
+    background-color: #e0e0e0;
+}
+.questionsMess .find button:hover{
+    background-color: #c3c3c3;
+}
+.questionsMess .qusetionList ul:nth-child(odd){
+    background-color: #e0e0e0;
+}
+.questionsMess .qusetionList ul:hover{
+    background-color: #c3c3c3;
+}
+.questionsMess .qusetionList ul.title{
+    font-weight: bold;
+
+}
+.questionsMess .qusetionList ul li{
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    vertical-align: middle;
+}
+.questionsMess .qusetionList ul li:first-child{
+	width: 30px;
+}
+.questionsMess .qusetionList ul li:nth-child(n+3){
+	width: 50px;
+}
+.questionsMess .qusetionList ul li:nth-child(2){
+	width: 200px;
+}
+.questionsMess .qusetionList ul li:nth-child(6){
+	width: 250px;
+}
+.questionsMess .qusetionList ul li:last-child{
+	width: 80px;
+}
+.questionsMess{
+	position: relative;
+	top: 0;
+	left: 0;
+}
+.questionsMess .mask{
+	width: 100%;
+	height: 860px;
+	background: rgba(0, 0, 0, 0.2);
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.questionsMess .updateBox{
+	width: 400px;
+	background-color: #fff;
+	position: absolute;
+	top: 100px;
+	left: 50%;
+	margin-left: -200px;
+}
+.questionsMess .updateBox .updateTop{
+	background-color: #f4b0a2;
+}
+.questionsMess .updateBox .updateTop .title{
+	padding-left: 20px;
+	font-size: 16px;
+}
+.questionsMess .updateBox .updateTop .closeUpBox{
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	right: 10px;
+	cursor: pointer;
+}
+.questionsMess .updateBox ul{
+	padding: 10px 20px;
+}
+.questionsMess .updateBox li{
+	padding: 10px 0;
+	border-bottom: 1px dotted #ccc;
+	vertical-align: middle;
+}
+.questionsMess .updateBox li:last-child{
+	border: none;
+}
+.questionsMess .updateBox li .describe{
+	display: inline-block;
+	width: 70px;
+}
+.questionsMess .updateBox .upQno{
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 4px 6px;
+	width: 80px;
+}
+.questionsMess .updateBox .upQtype{
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 4px 6px;
+}
+.questionsMess .updateBox .upQscore{
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 4px 6px;
+	width: 80px;
+}
+.questionsMess .updateBox textarea{
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	width: 250px;
+	height: 20px;
+}
+.questionsMess .updateBox .upQanswer{
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 4px 6px;
+}
+.questionsMess .updateBox .addBtn{
+	width: 80px;
+	border-radius: 7px;
+}
+.questionsMess .updateBox .delBtn{
+	width: 20px;
+	line-height: 20px;
+	color: red;
+	font-size: 18px;
+	font-weight: 400;
+}
+.questionsMess .updateBox .upBtn{
+	width: 80px;
+	border-radius: 7px;	
+}
+.questionsMess .updateBox .upMess{
+	display: inline-block;
+	width: 250px;
+	color: red;
+}
+.questionsMess .quesDetail{
+	width: 400px;
+	background-color: #fff;
+	position: absolute;
+	top: 100px;
+	left: 50%;
+	margin-left: -200px;
+}
+.questionsMess .quesDetail .detailTop{
+	background-color: #9cdde9;
+}
+.questionsMess .quesDetail .detailTop .title{
+	padding-left: 20px;
+	font-size: 16px;
+}
+.questionsMess .quesDetail .detailTop .closeDetail{
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	right: 10px;
+	cursor: pointer;
+}
+.questionsMess .quesDetail .question .quesTitle{
+	padding: 10px;
+}
+.questionsMess .quesDetail .question .quesTitle span:nth-of-type(1){
+	display: inline-block;
+	width: 20px;
+	line-height: 20px;
+	text-align: center;
+	background-color: #5B67FF;
+	margin-right: 5px;
+	color: #fff;
+}
+.questionsMess .quesDetail .question .quesTitle span:nth-of-type(2){
+	display: inline-block;
+	width: 50px;
+	line-height: 20px;
+	text-align: center;
+	background-color: #eee;
+	margin-right: 5px;
+}
+.questionsMess .quesDetail .question .queJudge{
+	padding-top: 10px;
+	padding-left: 30px;
+}
+.questionsMess .quesDetail .question .queSelection{
+	padding-top: 10px;
+	padding-left: 30px;
+}
+.questionsMess .quesDetail .question .quesAnswer{
+	width: 150px;
+	margin-top: 10px;
+	padding-left: 5px;
+	background-color: #F0FFC3;
+}
+/*a_qMess页面设置结束  */
+
+/*s_index学生主页设置开始  */
+.s_content{
+    height: 600px;
+}
+/*s_index左侧区域  */
+.s_content .left_side{
+    width: 150px;
+    height: 590px;
+    background-color: #d8d8d8;
+    margin-right: 10px;
+    padding-top: 10px;
+}
+.s_content .left_side ul{
+    margin-top: 10px;
+}
+.s_content .left_side ul li:first-child a{
+    padding-left: 30px;
+    font: 800 16px/30px 'SimSun';
+}
+.s_content .left_side ul li:nth-child(n+1) a{
+    padding-left: 30px;
+}
+.s_content .left_side li a.studentSub{
+    background: url("../images/menu_sub.png") no-repeat 8px;
+}
+.s_content .left_side li a.studentExam{
+    background: url("../images/menu_test.png") no-repeat 8px;
+}
+.s_content .left_side li a.studentInfo{
+    background: url("../images/menu_account.png") no-repeat 8px;
+}
+
+/*s_index右侧内容区域 */
+.s_content .main {
+    width: 790px;
+    height: 600px;
+    background-color: #eeeeee;
+    overflow: auto;
+}
+
+/*s_subMess 学生自己的课程信息 页面设置 */
+.mySub{
+	width: 600px;
+	margin: 30px auto;
+	border: 1px solid #bbb;
+}
+.mySub .subList .title{
+	font-weight: bold;
+}
+.mySub .subList ul:nth-of-type(odd){
+	background-color: #e0e0e0;
+}
+.mySub .subList ul:hover{
+    background-color: #c3c3c3;
+}
+.mySub .subList ul li{
+	display: inline-block;
+	width: 100px;
+	text-align: center;
+}
+.mySub .subList ul li:nth-child(2){
+	width: 300px;
+}
+/*s_subMess页面设置结束  */
+
+/*s_info学生个人信息页面设置开始  */
+.myInfo{
+	width: 400px;
+	margin: 30px;
+	border: 1px solid #bbb;
+}
+.myInfo ul{
+	padding: 10px 10px 20px 10px;
+}
+.myInfo ul li{
+	margin: 10px;
+	border-bottom: 1px dotted #bbb;
+}
+.myInfo ul li.title{
+	text-align: center;
+	font-size: 16px;
+	font-weight: 600;
+}
+.myInfo ul li span:first-child{
+	display: inline-block;
+	width: 80px;
+	padding: 0 8px;
+	font-weight: 600;
+}
+.myInfo ul li span:last-child{
+	display: inline-block;
+	padding: 0 8px;
+}
+/*学生个人信息页面设置结束  */
+
+/*updatePwd修改密码页面设置开始  */
+.updatePwd{
+	width: 400px;
+	margin: 30px;
+}
+.updatePwd li{
+	height: 50px;
+}
+.updatePwd li span:first-child{
+	display: inline-block;
+	width: 100px;
+}
+.updatePwd li input{
+	width: 200px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 4px 6px;
+}
+.updatePwd li p{
+	margin-left: 80px;
+	color: red;
+}
+.updatePwd li button{
+	width: 100px;
+	height: 30px;
+	margin-left: 80px;
+	background-color: #ddd;
+	border-radius: 7px;
+}
+.updatePwd li button:hover{
+	background-color: #c0c0c0;
+}
+/*修改密码页面设置结束  */
+
+/*s_testlist学生考试列表样式设置开始  */
+.myTest{
+	padding: 30px;
+}
+.myTest ul:first-child{
+	font-weight: bold;
+}
+.myTest ul:nth-of-type(odd){
+	background-color: #e0e0e0;
+}
+.myTest ul:hover{
+    background-color: #c3c3c3;
+}
+.myTest ul li{
+	display: inline-block;
+	width: 100px;
+	text-align: center;
+	vertical-align: middle;
+}
+.myTest ul li:nth-child(2){
+	width: 200px;
+}
+.myTest ul li:nth-child(3){
+	width: 180px;
+}
+.myTest p{
+	text-align: center;
+	color: #0000ff;
+	margin-top: 20px;
+}
+.myHisTest ul li:first-child{
+	width: 30px;
+}
+/*我的考试 页面设置结束  */
+
+/*startTest开始考试页面设置开始  */
+.testing{
+	height: 900px;
+}
+.testing .testing_left{
+	width: 260px;
+	height: 860px;
+	padding: 20px 0 0 10px;
+	border: 1px solid #ccc;
+	border-bottom: none;
+	border-radius: 7px;
+}
+.testing .testing_right{
+	border: 1px solid #ccc;
+	width: 660px;
+	height: 900px;
+	border-radius: 7px;
+}
+.testing .testing_left ul li{
+	line-height: 50px;
+	border-bottom: 1px dotted #ccc;	
+}
+.testing .testing_left ul li:first-child{
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+}
+.testing .testing_left ul li span:first-child{
+	font-weight: bold;
+}
+.testing .testing_left ul li button{
+	line-height: 30px;
+	width: 90px;
+	margin-left: 85px;
+	border-radius: 4px;
+	background-color: #7171ff;
+	color: #fff;
+	cursor: pointer;
+}
+.testing .testing_left .leftTime{
+	font-size: 20px;
+	font-weight: bold;
+	color: #cc0000;
+}
+.testing .testing_right .paper{
+	width: 600px;
+	height: 830px;
+	padding-top: 10px;
+	margin: 0 auto;
+	background-color: #fff;
+	overflow-y: auto;
+	position: relative;
+	top: 0;
+	left: 0;
+}
+.testing .testing_right .paper .paperTitle{
+	text-align: center;
+	font-size: 24px;
+	font-weight: 500;
+	padding: 5px 0;
+	background-color: #ddd;
+}
+.testing .testing_right .paper .paperMes{
+	text-align: center;
+	font-size: 20px;
+	font-weight: 400;
+}
+.testing .testing_right .paper .paperMes span{
+	margin-right: 20px;
+	font-size: 18px;
+}
+.testing .testing_right .paper .paperMes .myScore{
+	color: red;
+	font-weight: bold;
+	font-size: 20px;
+}
+.testing .testing_right .paper .message{
+	margin: 20px auto;
+	width: 300px;
+	text-align: center;
+	background-color: #cee9f4;
+}
+.testing .testing_right .paper .question{
+	width: 580px;
+	padding: 10px 0;
+	border-top: 1px dotted #ccc;
+	position: relative;
+	top: 0;
+	margin: 0;
+}
+.testing .testing_right .paper .question .quesTitle span:nth-of-type(1){
+	display: inline-block;
+	width: 20px;
+	line-height: 20px;
+	text-align: center;
+	background-color: #5B67FF;
+	margin-right: 5px;
+	color: #fff;
+}
+.testing .testing_right .paper .question .quesTitle span:nth-of-type(2){
+	display: inline-block;
+	width: 50px;
+	line-height: 20px;
+	text-align: center;
+	background-color: #eee;
+	margin-right: 5px;
+}
+.testing .testing_right .paper .question .queJudge{
+	padding-top: 10px;
+	padding-left: 30px;
+}
+.testing .testing_right .paper .question .queSelection{
+	padding-top: 10px;
+	padding-left: 30px;
+}
+.testing .testing_right .paper .question .quesAnswer{
+	margin-top: 10px;
+}
+.testing .testing_right .paper .question .quesAnswer .rightAnswer{
+	display: inline-block;
+	width: 150px;
+	padding-left: 5px;
+	background-color: #ddffe6;
+	margin-right: 30px;
+}
+.testing .testing_right .paper .question .quesAnswer .myAnswer{
+	display: inline-block;
+	width: 150px;
+	padding-left: 5px;
+	background-color: #F0FFC3;
+	margin-right: 30px;
+}
+.testing .testing_right .paper .question .quesAnswer .judgeIcon{
+	font-size: 24px;
+	font-weight: bold;
+	color: red;
+}
+.testing .testing_right .paper .question .quesAnswer .right{
+	color: green;
+}
+.testing .testing_right .paper .submitBtn{
+	width: 80px;
+	height: 30px;
+	margin-left: 500px;
+	background-color: #25be47;
+	color: #fff;
+	font-size: 16px;
+	border-radius: 4px;
+}
+/*学生考试界面设置结束  */
+
+/*t_index教师主页设置开始  */
+.t_content{
+    height: 900px;
+}
+/*t_index左侧区域  */
+.t_content .left_side{
+    width: 150px;
+    height: 890px;
+    background-color: #d8d8d8;
+    margin-right: 10px;
+    padding-top: 10px;
+}
+.t_content .left_side ul{
+    margin-top: 10px;
+}
+.t_content .left_side ul li:first-child a{
+    padding-left: 30px;
+    font: 800 16px/30px 'SimSun';
+}
+.t_content .left_side ul li:nth-child(n+1) a{
+    padding-left: 30px;
+}
+.t_content .left_side li a.teacherClass{
+    background: url("../images/menu_users.png") no-repeat 8px;
+}
+.t_content .left_side li a.teacherSub{
+    background: url("../images/menu_sub.png") no-repeat 8px;
+}
+.t_content .left_side li a.teacherExam{
+    background: url("../images/menu_test.png") no-repeat 8px;
+}
+.t_content .left_side li a.teacherInfo{
+    background: url("../images/menu_account.png") no-repeat 8px;
+}
+.t_content .left_side li a.analysis{
+    background: url("../images/menu_analysis.png") no-repeat 8px;
+}
+/*t_index右侧内容区域 */
+.t_content .main {
+    width: 790px;
+    height: 900px;
+    background-color: #eeeeee;
+    overflow: auto;
+}
+
+/*t_class教师查看班级页面设置开始  */
+.myClass{
+	margin-top: 20px;
+}
+.myClass ul:first-child{
+	font-weight: bold;
+}
+.myClass ul:nth-of-type(odd){
+	background-color: #e0e0e0;
+}
+.myClass ul li{
+	display: inline-block;
+	width: 180px;
+	text-align: center;
+}
+.myClass ul li:first-child{
+	width: 50px;
+}
+
+/*t_stu教师查看学生页面设置开始  */
+.teacherStu select{
+	border: 1px solid #00aeae;
+	padding: 4px 6px 5px 6px;
+}
+.teacherStu button{
+	background-color: #00bfbf;
+	color: #fff;
+	padding: 0 6px;
+}
+.teacherStu .findBySub{
+	padding: 20px 30px;
+	border-bottom: 1px solid #ccc;
+}
+.teacherStu .findBySub .findAllBtn{
+	margin-left: 100px;
+}
+.teacherStu .findGroup select{
+	margin-left: 30px;
+}
+.teacherStu .findResult{
+	padding-top: 20px;
+}
+.teacherStu .findResult .title{
+	margin-top: 10px;
+	font-weight: bold;	
+}
+.teacherStu .findResult ul:nth-of-type(odd){
+	background-color: #e0e0e0;
+}
+.teacherStu .findResult ul:hover{
+	background-color: #c3c3c3;
+}
+.teacherStu .findResult ul li{
+	display: inline-block;
+	width: 100px;
+	text-align: center;
+}
+.teacherStu .findResult ul li:first-child{
+	width: 50px;
+}
+.teacherStu .findResult ul li:nth-child(2){
+	width: 150px;
+}
+.teacherStu .findResult ul li:nth-child(5){
+	width: 150px;
+}
+/*t_stu页面设置结束  */
+
+/*t_sub教师的课程页面设置开始  */
+.teacherSub .list{
+	padding: 20px;
+}
+.teacherSub .list ul li{
+	width: 200px;
+}
+.teacherSub .list ul li:first-child{
+	width: 80px;
+}
+.teacherSub{
+	position: relative;
+	top: 0;
+	left: 0;
+}
+.teacherSub .mask{
+	width: 100%;
+	height: 860px;
+	background-color: rgba(0, 0, 0, 0.3);
+	position: absolute;
+	top: 0;
+	left:0;	
+}
+.teacherSub .toClassBox{
+	width: 600px;
+	height:280px;
+	background-color: #eee;
+	position: absolute;
+	top: 100px;
+	left: 50%;
+	margin-left: -300px;
+}
+.teacherSub .toClassBox .closeUpBox{
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	right: 10px;
+	cursor: pointer;
+}
+.teacherSub .toClassBox ul{
+	margin: 30px;
+}
+.teacherSub .toClassBox li{
+    height: 40px;
+}
+.teacherSub .toClassBox input.txt{
+    width: 200px;
+    height: 26px;
+    padding-left: 8px;
+    font-size: 14px;
+}
+.teacherSub .toClassBox .btn{
+    height: 30px;
+    background-color: #acacac;
+    border-radius: 7px;
+    font-size: 16px;   
+    margin-left: 30px;
+    padding: 0 6px;
+}
+.teacherSub .toClassBox .btn:hover{
+    background-color: #8e8e8e;
+}
+
+/*t_stuScore教师查看学生成绩 页面设置开始  */
+.stuScore .selectItem{
+	padding: 20px;
+}
+.stuScore .selectItem select{
+	border: 1px solid #00aeae;
+	border-radius: 4px;
+	padding: 4px 6px;
+	margin-left: 5px;
+}
+.stuScore .selectItem button{
+	background-color: #00bfbf;
+	color: #fff;
+	padding: 0 6px;
+	border-radius: 4px;
+	margin-left: 20px;
+}
+.stuScore .stuScoreList .title{
+	margin-top: 10px;
+	font-weight: bold;	
+}
+.stuScore .stuScoreList ul:nth-of-type(odd){
+	background-color: #e0e0e0;
+}
+.stuScore .stuScoreList ul:hover{
+	background-color: #c3c3c3;
+}
+.stuScore .stuScoreList ul li{
+	display: inline-block;
+	width: 60px;
+	text-align: center;
+}
+.stuScore .stuScoreList ul li:first-child{
+	width: 30px;
+}
+.stuScore .stuScoreList ul li:nth-child(2){
+	width: 130px;
+}
+.stuScore .stuScoreList ul li:nth-child(5){
+	width: 130px;
+}
+.stuScore{
+	position: relative;
+	top: 0;
+	left: 0;
+}
+.stuScore .mask{
+	width: 100%;
+	height: 860px;
+	background-color: rgba(0, 0, 0, 0.3);
+	position: absolute;
+	top: 0;
+	left:0;	
+}
+.stuScore .updateBox{
+	width: 400px;
+	height:300px;
+	background-color: #eee;
+	position: absolute;
+	top: 100px;
+	left: 50%;
+	margin-left: -250px;
+}
+.stuScore .updateBox .closeUpBox{
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	right: 10px;
+	cursor: pointer;
+}
+.stuScore .updateBox ul{
+	margin: 10px;
+}
+.stuScore .updateBox li{
+    height: 40px;
+}
+.stuScore .updateBox input.txt{
+    width: 200px;
+    height: 26px;
+    padding-left: 8px;
+    font-size: 14px;
+}
+.stuScore .updateBox .btn{
+    width: 60px;
+    height: 30px;
+    background-color: #acacac;
+    border-radius: 7px;
+    font-size: 16px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    margin-left: -30px;
+}
+.stuScore .updateBox .btn:hover{
+    background-color: #8e8e8e;
+}
+/*t_stuScore页面设置结束  */
+
+/*analysisExam考试分析页面设置开始  */
+.analysisExam .selectItem{
+	padding: 20px;
+}
+.analysisExam .selectItem select{
+	border: 1px solid #00aeae;
+	border-radius: 4px;
+	padding: 4px 6px;
+	margin-left: 5px;
+}
+.analysisExam .selectItem button{
+	background-color: #00bfbf;
+	color: #fff;
+	padding: 0 6px;
+	border-radius: 4px;
+	margin-left: 20px;
+}
+.analysisExam .analysisItem{
+	width: 700px;
+	margin: 0 auto;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+.analysisExam .analysisItem li{
+	line-height: 40px;
+	border-bottom: 1px dotted #ccc;
+	font-size: 16px;
+}
+.analysisExam .analysisItem li span{
+	display: inline-block;
+	width: 200px;
+	padding: 0 10px;
+}
+.analysisExam .stuScoreList .title{
+	margin-top: 10px;
+	font-weight: bold;	
+}
+.analysisExam .stuScoreList ul:nth-of-type(odd){
+	background-color: #e0e0e0;
+}
+.analysisExam .stuScoreList ul:hover{
+	background-color: #c3c3c3;
+}
+.analysisExam .stuScoreList ul li{
+	display: inline-block;
+	width: 80px;
+	text-align: center;
+}
+.analysisExam .stuScoreList ul li:first-child{
+	width: 30px;
+}
+.analysisExam .stuScoreList ul li:nth-child(2){
+	width: 130px;
+}
+.analysisExam .stuScoreList ul li:nth-child(5){
+	width: 130px;
 }

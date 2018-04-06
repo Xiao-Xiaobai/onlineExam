@@ -1,0 +1,85 @@
+<nav>
+    <a href="#/">首页</a>
+    <span> > </span>
+    <span>考试信息</span>
+</nav>
+<div class="examMess">
+	<div class="mask" ng-show="updating || toClass"></div>
+	<div class="updateBox" ng-show="updating">
+		<div class="closeUpBox" ng-click="updating=false">×</div>
+		<ul>			
+			<li><input type="hidden" ng-model="upId">				
+				<span>考试名称：</span><input type="text" class="eName" ng-model="upEname"></li>
+	        <li><span>考试科目：</span>
+	        	<input list="sublist" type="text" placeholder="请输入完整的科目名" class="eSub" ng-model="upEsub">
+	        			<datalist id="sublist">
+	        			<option ng-repeat="sub in subjects track by $index">{{sub.subName}}</option>      		
+	        			</datalist>
+	        </li>
+	        <li><span>考试时长：</span><input type="number" class="eTime" placeholder="请输入数字 如：120" ng-model="upTotalTime">分钟</li>
+	        <li><span>卷面总分：</span><input type="number" class="eScore" placeholder="请输入数字 如：100" ng-model="upTotalScore">分</li>
+	        <li ng-show="upMess"><p>{{upMess}}</p></li>
+	        <li><button class="btn" ng-click="update()">确认</button></li>
+		</ul>
+	</div>
+	<div class="toClassBox" ng-show="toClass">
+		<div class="closeUpBox" ng-click="toClass=false">×</div>
+		<ul>
+			<li><input type="hidden" ng-model="eId">
+				<span>考试名称：</span><input type="text" class="txt" ng-model="toClassEname" disabled="disabled"></li>
+			<li><span>考试科目：</span><input type="text" class="txt" ng-model="toClassEsub" disabled="disabled"></li>
+			<li>
+				<span>专业：</span>
+	            <select ng-model="major" ng-init="major='暂无'">
+	                <option value="暂无" ng-show="false">请选择专业</option>
+	                <option value="计算机科学与技术">计算机科学与技术</option>
+	                <option value="医学信息工程">医学信息工程</option>
+	                <option value="卫生检验与检疫">卫生检验与检疫</option>
+	                <option value="医学检验技术">医学检验技术</option>
+	                <option value="听力与言语康复">听力与言语康复</option>
+	            </select>
+	            &nbsp;&nbsp;
+	            <span>年级：</span>
+	            <select ng-model="year" ng-init="year='暂无'">
+	                <option value="暂无" ng-show="false">请选择年级</option>
+	                <option value="2014级">2014级</option>
+	                <option value="2015级">2015级</option>
+	                <option value="2016级">2016级</option>
+	                <option value="2017级">2017级</option>
+	                <option value="2018级">2018级</option>
+	            </select>
+	            &nbsp;&nbsp;
+	            <span>班级：</span>
+	            <select ng-model="clas" ng-init="clas='暂无'">
+	                <option value="暂无" ng-show="false">请选择班级</option>
+	                <option value="1班">1班</option>
+	                <option value="2班">2班</option>
+	                <option value="3班">3班</option>
+	                <option value="4班">4班</option>
+	                <option value="5班">5班</option>
+	            </select>
+			</li>
+			<li><p ng-show="upMess2">{{upMess2}}</p></li>
+			<li><button class="btn" ng-click="addToClass()">将《{{toClassEname}}》添加到该班级</button></li>
+		</ul>
+	</div>
+	<div class="find" ng-hide="routeParam">
+        <input type="text" placeholder="请输入关键字" ng-model="byEname"><button ng-click="findByEname()">按考试名查找</button>
+        <input type="text" placeholder="请输入关键字" ng-model="bySubName"><button ng-click="findBySubName()">按科目名查找</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button ng-show="byEname!=''||bySubName!=''" ng-click="reload()">全部考试</button>
+    </div>
+    <div class="examlist">
+	    <ul class="title">
+	        <li>序号</li><li>考试名称</li><li>科目</li><li>时长</li><li>总分</li>
+	        <li>创建人</li><li>试卷</li><li>操作</li>
+	    </ul>
+	    
+	    <ul ng-repeat="exam in exams track by $index">
+	        <li>{{$index+1}}</li><li>{{exam.eName}}</li><li>{{exam.eSub}}</li><li>{{exam.totalTime}}</li><li>{{exam.totalScore}}</li>
+	        <li><span class="creator">{{exam.creator}}</span><span>{{exam.createTime}}</span></li><li><a href="#/a_pMess/{{exam.id}}">查看</a></li>
+	        <li><a href="javascript:;" ng-click="updateClick(exam.id, exam.eName, exam.eSub, exam.totalTime, exam.totalScore)">修改</a> 
+	        <a href="javascript:;" ng-click="delExam(exam.id)">删除</a> <a href="javascript:;" ng-click="addToClick(exam.id, exam.eName, exam.eSub)">添加到班级</a></li>
+	    </ul>
+	    <p class="queryMess" ng-show="queryMess">{{queryMess}}</p>
+    </div>
+</div>

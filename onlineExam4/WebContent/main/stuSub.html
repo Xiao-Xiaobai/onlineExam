@@ -1,4 +1,4 @@
-﻿<nav>
+<nav>
     <a href="#/">首页</a>
     <span> > </span>
     <a href="#/a_sMess">学生信息</a>
@@ -6,13 +6,42 @@
     <span>已加入的课程</span>
 </nav>
 <div class="stuSub">
-    <ul>
-        <li>学号</li><li>姓名</li><li>课程名</li><li>考试状态</li><li>成绩</li><li>操作</li>
-    </ul>
-
-    <ul ng-repeat="stuSub in stuSubs track by $index">
-        <li>{{stuSub.sno}}</li><li>{{stuSub.sName}}</li><li>{{stuSub.subName}}</li><li>{{stuSub.status}}</li>
-        <li>{{stuSub.grade}}</li><li><a href="#">修改</a> <a href="#">删除</a></li>
-    </ul>
-    <p ng-bind="mess" class="mess"></p>
+	<div class="mask" ng-show="updating"></div>
+	<div class="updateBox" ng-show="updating">
+		<div class="closeUpBox" ng-click="updating=false">×</div>
+		<ul>			
+			<li><input type="hidden" ng-model="upId">
+				<span>学号：</span><input type="text" class="txt" ng-model="upSno" disabled="disabled"></li>
+			<li><span>姓名：</span><input type="text" class="txt" ng-model="upSname" disabled="disabled"></li>
+			<li><span>课程名：</span><input type="text" class="txt" ng-model="upSub" disabled="disabled"></li>
+			<li><span>课程考试：</span><input type="text" class="txt" ng-model="upEname"  disabled="disabled"></li>
+			<li><span>考试状态：</span><input type="text" class="txt" ng-model="upStatus"></li>
+			<li><span>成绩：</span><input type="text" class="txt" ng-model="upGrade"></li>
+			<li><input type="submit" value="确认" class="btn" ng-click="updateStuSub()"></li>
+		</ul>
+	</div>
+	<div class="list">
+	    <ul>
+	        <li>学号</li><li>姓名</li><li>课程名</li><li>课程考试</li><li>考试状态</li><li>成绩</li><li>操作</li>
+	    </ul>
+	
+	    <ul ng-repeat="stuSub in stuSubs track by $index">
+	        <li>{{stuSub.sno}}</li><li>{{stuSub.sName}}</li><li>{{stuSub.subName}}</li><li>{{stuSub.eName}}</li><li>{{stuSub.status}}</li><li>{{stuSub.grade}}</li>
+	        <li><a href="javascript:;" ng-click="updateClick(stuSub.eId, stuSub.sno, stuSub.sName, stuSub.subName, stuSub.eName, stuSub.status, stuSub.grade)">修改</a> <a href="javascript:;" ng-click="delStuSub(stuSub.sno, stuSub.subName)">删除</a></li>
+	    </ul>
+	    <p ng-bind="mess" class="mess"></p>
+	    <div class="addSubBtn"><button ng-click="isClick=true">给该学生添加课程</button></div>
+	    <div class="addSubShow" ng-show="isClick">
+	    	<span>课程：</span><button class="plusBtn" ng-click="newSub()">继续添加</button>
+	        <div ng-repeat="inpt in inpts track by $index">
+	            <input list="sublist" type="text" placeholder="请填入完整的科目名" class="subTxt" ng-model="$parent.sub[$index]">
+        			<datalist id="sublist">
+        			<option ng-repeat="sub in subjects track by $index">{{sub.subName}}</option>      		
+        			</datalist>
+	            <button class="delBtn" ng-click="delSub($index)" ng-show="$index!=0">&nbsp;</button>
+	        </div>
+	        <p ng-bind="mess2" class="mess" ng-show="mess2"></p>
+	        <button class="btn" ng-click="addStuSub()">确认</button>
+	    </div>
+    </div>
 </div>

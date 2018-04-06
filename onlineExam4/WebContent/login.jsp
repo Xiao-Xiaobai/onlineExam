@@ -29,6 +29,7 @@
                     <input type="submit" value="登录" class="btn" id="sub">
                 
             </div>
+            <p> 测试账号：管理员:admin/admin 学生:201412201401041/123456 教师：20142222/111</p>
         </div>
     </div>
     

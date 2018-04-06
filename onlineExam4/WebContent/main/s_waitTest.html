@@ -1,0 +1,16 @@
+<nav>
+    <a href="#/">首页</a>
+    <span> > </span>
+    <a href="#/s_test/{{sno}}">我的考试</a>
+    <span> > </span>
+    <span>待参加的考试</span>
+</nav>
+<div class="myTest">
+	<ul>
+		<li>序号</li><li>考试名称</li><li>科目</li><li>考试状态</li><li>操作</li>
+	</ul>
+	<ul ng-repeat="exam in exams track by $index">
+		<li>{{$index+1}}</li><li>{{exam.eName}}</li><li>{{exam.eSub}}</li><li>{{exam.eStatus}}</li><li><a href="startTest.jsp?eId={{exam.id}}">开始考试</a></li>
+	</ul>
+	<p ng-show="mess">{{mess}}</p>
+</div>

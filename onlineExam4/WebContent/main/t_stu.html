@@ -1,0 +1,50 @@
+<nav>
+    <a href="#/teacher">首页</a>
+    <span> > </span>
+    <span>查看学生</span>
+</nav>
+<div class="teacherStu">	
+	<div class="findBySub" ng-show="findMethod">
+		<select ng-model="bySub" ng-init="bySub=''">
+			<option value="" ng-show="false">请选择课程</option>
+			<option ng-repeat="teaSub in teaSubs track by $index" value="{{teaSub.subName}}">{{teaSub.subName}}</option>
+		</select><button ng-click="findBySub()">查看选了该课程的学生</button>
+		<button ng-click="findAll()" class="findAllBtn">查看我的全部学生</button>
+	</div>
+	<div class="findResult" ng-show="findMethodSelected">
+        <div class="findGroup">
+        	<select ng-model="byMajor" ng-disabled="!findMethod">
+                <option value="暂无" ng-show="false">请选择专业</option>
+                <option value="计算机科学与技术">计算机科学与技术</option>
+                <option value="医学信息工程">医学信息工程</option>
+                <option value="卫生检验与检疫">卫生检验与检疫</option>
+                <option value="医学检验技术">医学检验技术</option>
+                <option value="听力与言语康复">听力与言语康复</option>
+            </select><button ng-click="findByMajor()" ng-disabled="!findMethod">按专业查找</button>
+            <select ng-model="byYear" ng-disabled="!findMethod">
+                <option value="暂无" ng-show="false">请选择年级</option>
+                <option value="2014级">2014级</option>
+                <option value="2015级">2015级</option>
+                <option value="2016级">2016级</option>
+                <option value="2017级">2017级</option>
+                <option value="2018级">2018级</option>
+            </select><button ng-click="findByYear()" ng-disabled="!findMethod">按年级查找</button>
+            <select ng-model="byClass" ng-disabled="!findMethod">
+                <option value="暂无" ng-show="false">请先选择专业和年级</option>
+                <option value="1班">1班</option>
+                <option value="2班">2班</option>
+                <option value="3班">3班</option>
+                <option value="4班">4班</option>
+                <option value="5班">5班</option>
+            </select><button ng-click="findByClass()" ng-disabled="!findMethod">按班级查找</button>
+        </div>
+        
+	    <ul class="title">
+	        <li>序号</li><li>学号</li><li>姓名</li><li>性别</li><li>专业</li><li>年级</li><li>班级</li>
+	    </ul>
+	    
+	    <ul ng-repeat="stu in students">
+	        <li>{{$index+1}}</li><li>{{stu.sno}}</li><li>{{stu.name}}</li><li>{{stu.sex}}</li><li>{{stu.major}}</li><li>{{stu.year}}</li><li>{{stu.clas}}</li>
+	    </ul>
+    </div>
+</div>

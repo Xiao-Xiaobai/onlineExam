@@ -1,4 +1,4 @@
-﻿<nav>
+<nav>
     <a href="#/">首页</a>
     <span> > </span>
     <a href="#/a_sMess">学生信息</a>
@@ -6,16 +6,28 @@
     <span>已参加的考试</span>
 </nav>
 <div class="hisTest">
-    <ul>
-        <li>学号</li><li>姓名</li><li>考试名称</li><li>科目</li><li>成绩</li><li>操作</li>
-    </ul>
-    <!--<ul>-->
-        <!--<li>201412201401041</li><li>白菊</li><li>女</li><li>2014级</li><li>1班</li>-->
-        <!--<li>计算机科学与技术</li><li><a href="#">查看</a></li><li><a href="#">查看</a></li>-->
-        <!--<li><a href="#">修改</a> <a href="#">删除</a></li>-->
-    <!--</ul>-->
-    <ul ng-repeat="hisTest in hisTests track by $index">
-        <li>{{sNo}}</li><li>{{sName}}</li><li>{{hisTest.name}}</li><li>{{hisTest.subject}}</li>
-        <li>{{hisTest.grade}}</li><li><a href="#">修改</a> <a href="#">删除</a></li>
-    </ul>
+	<div class="mask" ng-show="updating"></div>
+	<div class="updateBox" ng-show="updating">
+		<div class="closeUpBox" ng-click="updating=false">×</div>
+		<ul>			
+			<li><input type="hidden" ng-model="upId">
+				<span>学号：</span><input type="text" class="txt" ng-model="upSno" disabled="disabled"></li>
+			<li><span>姓名：</span><input type="text" class="txt" ng-model="upSname" disabled="disabled"></li>
+			<li><span>考试名称：</span><input type="text" class="txt" ng-model="upEname"  disabled="disabled"></li>
+			<li><span>科目：</span><input type="text" class="txt" ng-model="upSub" disabled="disabled"></li>
+			<li><span>成绩：</span><input type="text" class="txt" ng-model="upGrade"></li>
+			<li><input type="submit" value="确认" class="btn" ng-click="updateStuExam()"></li>
+		</ul>
+	</div>
+	<div class="hisTestlist">
+	    <ul>
+	        <li>学号</li><li>姓名</li><li>考试名称</li><li>科目</li><li>成绩</li><li>操作</li>
+	    </ul>
+	    <ul ng-repeat="hisTest in hisTests track by $index">
+	        <li>{{hisTest.sNo}}</li><li>{{hisTest.sName}}</li><li>{{hisTest.eName}}</li><li>{{hisTest.eSub}}</li>
+	        <li>{{hisTest.grade}}</li><li><a href="javascript:;" ng-click="updateClick(hisTest.id, hisTest.sNo, hisTest.sName, hisTest.eName, hisTest.eSub, hisTest.grade)">修改</a> 
+	        <a href="javascript:;" ng-click="delStuExam(hisTest.id)">删除</a></li>
+	    </ul>
+	    <p ng-bind="mess" class="mess"></p>
+	</div>
 </div>

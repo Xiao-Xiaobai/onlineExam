@@ -26,10 +26,7 @@ select, input {
     vertical-align: middle;
 }
 
-select, input, textarea {
-    font-size: 12px;
-    margin: 0;
-}
+
 textarea {
     resize: none;
 }

@@ -1,0 +1,83 @@
+<nav>
+    <a href="#/">首页</a>
+    <span> > </span>
+    <span>新增试题</span>
+</nav>
+<div class="addPaper">
+	<div class="paperName">
+		<select class="selectEname" ng-model="eMes" ng-change="reCreate()">
+			<option value="">选择已有考试</option>
+			<option ng-repeat="eMes in eMess track by $index">{{eMes.eName}}</option>
+		</select>		
+		<a href="#/addExam" ng-show="!isTeacher">还没有创建考试？点击这里</a>
+		<a href="#/addExam/{{tno}}" ng-show="isTeacher">还没有创建考试？点击这里</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="#/t_exam/{{tno}}" ng-show="isTeacher">已有部分题目？去查看试卷</a>
+	</div>
+	<div class="createPaper" ng-show="eMes!=''">
+		<div class="oneItem">
+			<ul>
+				<li><span class="describe">题号：</span><span class="qNo">{{qNo}}</span></li>
+				<li><span class="describe">题目类型：</span>
+					<div class="qType">
+						<select ng-model="qType">	
+							<option value="单选题">单选题</option>
+							<option value="多选题">多选题</option>
+							<option value="判断题">判断题</option>
+						</select>
+					</div>
+				</li>
+				<li><span class="describe">题目分值：</span><div class="qScore"><input type="number" class="inputScore" ng-model="qScore" placeholder="请输入数字">分</div></li>	
+				<li><span class="describe">题干：</span><div class="qTitle"><textarea ng-model="qTitle"></textarea></div></li>
+				<li ng-hide="qType=='判断题'"><span class="describe select">选项设置：</span>
+					<div class="selections" ng-show="qType=='单选题'">
+						<div><button class="addBtn" ng-click="addSelect()">增加选项</button><span class="hint">直接勾选设置答案</span></div>
+						<div ng-repeat="select in selects track by $index">
+							选项{{select.selectNo}} <input type="radio" value="{{select.selectNo}}" ng-model="$parent.qAnswer"> <textarea ng-model="select.selection"></textarea>
+							<button class="delBtn" ng-click="delSelect($index)" ng-show="$index==selects.length-1 && $index!=0">×</button>
+						</div>
+					</div>
+					<div class="selections" ng-show="qType=='多选题'">
+						<div><button class="addBtn" ng-click="addMultiSelect()">增加选项</button><span class="hint">直接勾选设置答案</span></div>
+						<div ng-repeat="multiSelect in multiSelects track by $index">
+							选项{{multiSelect.selectNo}} <input type="checkbox" value="{{multiSelect.selectNo}}" ng-model="multiSelect.isChecked"> <textarea ng-model="multiSelect.selection"></textarea>
+							<button class="delBtn" ng-click="delMultiSelect($index)" ng-show="$index==multiSelects.length-1 && $index!=0">×</button>
+						</div>
+					</div>
+				</li>
+				<li ng-show="qType=='判断题'"><span class="describe">答案设置：</span>
+					<div class="answers">
+						<div>正确 <input type="radio" value="T" ng-model="qAnswer"></div>
+						<div>错误 <input type="radio" value="F" ng-model="qAnswer"></div>
+					</div>
+				</li>
+				<li><span class="mess">{{mess}}</span><button class="btn1" ng-click="add()">保存</button> 
+					<button class="btn2" ng-click="addAndNext()">保存并新增下一题</button> <button class="btn3" ng-click="preview()">预览</button>
+				</li>	
+			</ul>
+		</div>
+	</div>
+	<div class="mask" ng-show="previewing"></div>
+	<div class="previewBox" ng-show="previewing">
+		<div class="preTitle"><span class="preTitle_text">预览</span><span class="preTitle_close" ng-click="previewing=false">×</span></div>
+		<div class="preContent">
+			<div class="preQtitle"><span>{{qNo}}</span><span>{{qType}}</span><span>{{qTitle}}</span> <span>({{qScore}}分)</span></div>
+			<div class="preSelection" ng-show="qType=='单选题'">
+				<div ng-repeat="select in selects track by $index">
+					<input type="radio" name="preRadio"> <span>{{select.selectNo}}.</span> <span>{{select.selection}}</span>
+				</div>
+				<div class="preAnswer">答案：{{qAnswer}}</div>
+			</div>
+			<div class="preSelection" ng-show="qType=='多选题'">
+				<div ng-repeat="multiSelect in multiSelects track by $index">
+					<input type="checkbox" name="preMulti"> <span>{{multiSelect.selectNo}}.</span> <span>{{multiSelect.selection}}</span>
+				</div>
+				<div class="preAnswer">答案：{{qAnswer}}</div>
+			</div>
+			<div class="preJudge" ng-show="qType=='判断题'">
+				<div>正确 <input type="radio" value="T" name="judgeSelect"></div>
+				<div>错误 <input type="radio" value="F" name="judgeSelect"></div>
+				<div class="preAnswer">答案：{{qAnswer}}</div>
+			</div>
+		</div>
+	</div>
+</div>

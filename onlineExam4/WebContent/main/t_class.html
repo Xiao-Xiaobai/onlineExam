@@ -1,0 +1,17 @@
+<nav>
+    <a href="#/teacher">首页</a>
+    <span> > </span>
+    <span>我的班级</span>
+</nav>
+<div class="myClass">	
+    <ul>
+        <li>序号</li><li>所带专业</li><li>所带年级</li><li>所带班级</li><li>操作</li>
+    </ul>
+
+    <ul ng-repeat="teaClas in teaClass track by $index">
+        <li>{{$index+1}}</li><li>{{teaClas.major}}</li><li>{{teaClas.year}}</li><li>{{teaClas.clas}}</li>
+        <li><a href="#/t_stu/{{tno}}/{{teaClas.major}}/{{teaClas.year}}/{{teaClas.clas}}">查看此班级学生</a></li>
+    </ul>
+    <p ng-bind="mess" class="mess"></p>
+	    
+</div>

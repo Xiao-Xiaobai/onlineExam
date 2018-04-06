@@ -5,8 +5,38 @@
 </nav>
 <div class="stuMess">
 	<div class="find">
-        <input type="text" placeholder="请输入学号" ng-model="bySno"><button ng-click="findBySno()">按学号查找</button>
-        <input type="text" placeholder="请输入姓名" ng-model="byName"><button ng-click="findByName()">按姓名查找</button>
+		<div class="findOne">		
+        	<input type="text" placeholder="请输入学号" ng-model="bySno"><button ng-click="findBySno()">按学号查找</button>
+        	<input type="text" placeholder="请输入姓名" ng-model="byName"><button ng-click="findByName()">按姓名查找</button>
+        	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button ng-show="bySno!=''||byName!=''" ng-click="reload()">全部学生</button>
+        </div>
+        <div class="findGroup">
+        	<select ng-model="byMajor" ng-init="byMajor='暂无'">
+                <option value="暂无" ng-show="false">请选择专业</option>
+                <option value="计算机科学与技术">计算机科学与技术</option>
+                <option value="医学信息工程">医学信息工程</option>
+                <option value="卫生检验与检疫">卫生检验与检疫</option>
+                <option value="医学检验技术">医学检验技术</option>
+                <option value="听力与言语康复">听力与言语康复</option>
+            </select><button ng-click="findByMajor()">按专业查找</button>
+            <select ng-model="byYear" ng-init="byYear='暂无'">
+                <option value="暂无" ng-show="false">请选择年级</option>
+                <option value="2014级">2014级</option>
+                <option value="2015级">2015级</option>
+                <option value="2016级">2016级</option>
+                <option value="2017级">2017级</option>
+                <option value="2018级">2018级</option>
+            </select><button ng-click="findByYear()">按年级查找</button>
+            <select ng-model="byClass" ng-init="byClass='暂无'">
+                <option value="暂无" ng-show="false">请选择班级</option>
+                <option value="1班">1班</option>
+                <option value="2班">2班</option>
+                <option value="3班">3班</option>
+                <option value="4班">4班</option>
+                <option value="5班">5班</option>
+            </select><button ng-click="findByClass()">按班级查找</button>
+        </div>
+        
     </div>
     <ul class="title">
         <li>学号</li><li>姓名</li><li>性别</li><li>年级</li><li>班级</li>

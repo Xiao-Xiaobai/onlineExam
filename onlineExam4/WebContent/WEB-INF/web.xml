@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>onlineExam4</display-name>
+  <session-config>    
+  <session-timeout>120</session-timeout>  <!--120分钟后失效-->  
+  </session-config>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
@@ -29,4 +32,15 @@
     <servlet-name>a_sBaseMessServlet</servlet-name>
     <url-pattern>/a_sBaseMessServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>a_tBaseMessServlet</display-name>
+    <servlet-name>a_tBaseMessServlet</servlet-name>
+    <servlet-class>com.servlets.a_tBaseMessServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>a_tBaseMessServlet</servlet-name>
+    <url-pattern>/a_tBaseMessServlet</url-pattern>
+  </servlet-mapping>
+
 </web-app>
